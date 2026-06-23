@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Destinalite | Sanat Akademisi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            soft:      "#FDF8F5",
+            cream:     "#F7EDE8",
+            blush:     "#EDD5CC",
+            rose:      "#C9968A",
+            mocha:     "#8C665D",
+            brown:     "#6E4D45",
+            gold:      "#B08A4A",
+            champagne: "#F2E4D8"
+          },
+          fontFamily: {
+            serif: ["Cormorant Garamond", "Georgia", "serif"],
+            sans:  ["Inter", "Arial", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #FDF8F5; color: #8C665D; overflow-x: hidden; font-family: "Cormorant Garamond", Georgia, serif; }
+
+    /* ── Gold text ── */
+    .gold-text {
+      background: linear-gradient(115deg, #9d7a3d, #d9bd77, #b08a4a, #f2db9d);
+      background-size: 250% 250%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: goldFlow 8s ease infinite;
+    }
+    @keyframes goldFlow {
+      0%,100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+
+    /* ── Glass ── */
+    .glass {
+      background: rgba(253,248,245,.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(176,138,74,.15);
+    }
+
+    /* ── Navbar ── */
+    .navbar { transition: box-shadow .3s, background .3s; }
+    .navbar.scrolled { box-shadow: 0 4px 40px rgba(110,77,69,.1); }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 5rem;
+    }
+    /* ── Hero slider ── */
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background: center/cover no-repeat;
+      opacity: 0;
+      transform: scale(1.12);
+      transition: opacity 1.4s ease, transform 6s ease;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,0,0,.42) 0%, rgba(0,0,0,.12) 55%, rgba(0,0,0,.30) 100%),
+        linear-gradient(135deg, rgba(0,0,0,.40) 0%, rgba(0,0,0,.12) 55%, rgba(0,0,0,.32) 100%);
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 620px;
+      padding: 0.5rem;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      text-align: center;
+      color: #fff;
+    }
+    @media (min-width: 768px) {
+      .hero-card {
+        width: 92%;
+        padding: 2.75rem;
+      }
+    }
+
+    .hero-logo {
+      display: block;
+      max-width: 100%;
+      max-height: clamp(140px, 30vw, 220px);
+      width: auto;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+      animation: heroFloat 4s ease-in-out infinite 2s;
+    }
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @media (min-width: 768px) {
+      .hero-logo {
+        max-width: clamp(320px, 70vw, 600px);
+        max-height: clamp(120px, 18vw, 220px);
+      }
+    }
+
+    .hero-badge, .hero-sub, .hero-desc, .hero-btn {
+      text-shadow:
+        0 0 6px rgba(0,0,0,0.85),
+        0 2px 4px rgba(0,0,0,0.75),
+        0 0 18px rgba(0,0,0,0.55);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: .35rem 1rem;
+      border: 1px solid rgba(176,138,74,.6);
+      border-radius: 999px;
+      color: #B08A4A;
+      font-size: .7rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      font-family: Inter, Arial, sans-serif;
+      margin-bottom: 1rem;
+      background: rgba(0,0,0,0.25);
+    }
+
+    .hero-divider {
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(176,138,74,.7), transparent);
+      margin: .5rem auto 1rem;
+      box-shadow: 0 0 8px rgba(176,138,74,.3);
+    }
+
+    .hero-icon svg {
+      filter: drop-shadow(0 0 10px rgba(176,138,74,0.6));
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1.5rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      font-weight: 500;
+      font-family: Inter, Arial, sans-serif;
+      transition: transform .3s ease, box-shadow .3s ease, background .3s ease, color .3s ease, border-color .3s ease;
+    }
+    .hero-btn-primary {
+      background: #B08A4A;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(176,138,74,.35), 0 2px 6px rgba(0,0,0,0.25);
+    }
+    .hero-btn-primary:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(176,138,74,.5), 0 2px 6px rgba(0,0,0,0.25);
+      background: #c49a56;
+    }
+    .hero-btn-secondary {
+      background: rgba(0,0,0,0.25);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.45);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+    .hero-btn-secondary:hover {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.7);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .hero-btn-accent {
+      background: rgba(176,138,74,.2);
+      color: #fff;
+      border: 1px solid #B08A4A;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+    .hero-btn-accent:hover {
+      background: rgba(176,138,74,.35);
+      border-color: #D9BD77;
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    .hero-dots {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+    .hero-dots .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.45);
+      cursor: pointer;
+      transition: background .3s, transform .3s, width .3s;
+      box-shadow: 0 0 6px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4);
+    }
+    .hero-dots .slider-dot.active {
+      background: #B08A4A;
+      transform: scale(1);
+      width: 24px;
+      border-radius: 999px;
+    }
+
+    .slider-controls { display: none; }
+
+    /* ── Scroll progress ── */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #B08A4A, #D4B06A);
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    /* ── Divider ornament ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      justify-content: center;
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(176,138,74,.5));
+    }
+    .ornament::after {
+      background: linear-gradient(90deg, rgba(176,138,74,.5), transparent);
+    }
+
+    /* ── Soft frame ── */
+    .soft-frame {
+      border: 8px solid rgba(255,255,255,.85);
+      box-shadow: 0 24px 64px rgba(110,77,69,.15);
+    }
+
+    /* ── Section reveal ── */
+    .reveal { opacity: 0; transform: translateY(50px); }
+
+    /* ── Program card ── */
+    .prog-card {
+      background: rgba(253,248,245,.9);
+      border: 1px solid rgba(176,138,74,.18);
+      border-radius: 2rem;
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+    .prog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 32px 64px rgba(110,77,69,.14);
+    }
+
+    /* ── Program carousel ── */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .program-card-wrapper {
+      position: relative;
+      flex-shrink: 0;
+      width: 75vw;
+      scroll-snap-align: center;
+    }
+    @media (min-width: 768px) {
+      .program-card-wrapper { width: 28rem; }
+    }
+    .program-card-wrapper .prog-card {
+      position: relative;
+      transform: scale(0.92);
+      transform-origin: top center;
+      opacity: 0.75;
+      transition: transform .4s ease, opacity .4s ease, box-shadow .4s ease;
+    }
+    .program-card-wrapper.active {
+      z-index: 10;
+    }
+    .program-card-wrapper.active .prog-card {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    .program-card-wrapper.active .prog-card:hover {
+      transform: scale(1.05) translateY(-8px);
+    }
+    .cursor-grab { cursor: grab; }
+    .cursor-grabbing { cursor: grabbing; }
+
+    /* ── Event card ── */
+    .event-card {
+      background: rgba(255,255,255,.85);
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(110,77,69,.1);
+      transition: transform .4s ease, box-shadow .4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .event-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 32px 64px rgba(110,77,69,.14);
+    }
+    .event-card .event-img { transition: transform .6s ease; }
+    .event-card:hover .event-img { transform: scale(1.08); }
+
+    .event-card .p-6 {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+    }
+    .event-card .p-6 p {
+      flex: 1 1 auto;
+    }
+
+    /* ── Marquee ── */
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* ── Story pin ── */
+    .section-pin { height: 400vh; position: relative; }
+    .pin-inner {
+      position: sticky; top: 0; height: 100vh;
+      display: grid; place-items: center; overflow: hidden;
+    }
+    .story-panel {
+      position: absolute; inset: 0;
+      display: grid; place-items: center;
+      padding: 2rem; opacity: 0; transform: scale(.94);
+    }
+
+    /* ── Petal ── */
+    .petal {
+      position: fixed; top: -40px; z-index: 5;
+      pointer-events: none; color: rgba(201,154,142,.5);
+      animation: fall linear forwards;
+    }
+    @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+
+    /* ── Cursor glow ── */
+    .cursor-glow {
+      position: fixed; width: 280px; height: 280px;
+      border-radius: 50%; pointer-events: none; z-index: 2;
+      transform: translate(-50%,-50%);
+      background: radial-gradient(circle, rgba(201,154,142,.2), rgba(176,138,74,.08), transparent 65%);
+      mix-blend-mode: multiply;
+    }
+
+    /* ── Magnetic ── */
+    .magnetic { transition: transform .25s ease; }
+
+    /* ── Select ── */
+    select {
+      -webkit-appearance: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C665D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.2rem center;
+      padding-right: 2.5rem;
+    }
+
+    /* ── Checklist ── */
+    .check-item::before {
+      content: '✓';
+      color: #B08A4A;
+      font-weight: 600;
+      margin-right: .6rem;
+    }
+
+    /* ── Curtain loader ── */
+    #curtain-loader {
+      position: fixed; inset: 0; z-index: 100;
+      background: transparent;
+      font-family: Georgia, serif;
+      overflow: hidden; touch-action: none; user-select: none;
+      pointer-events: auto;
+    }
+    body.curtain-loader-active { overflow: hidden; }
+
+    #bg { display: none; }
+    #stage-wall { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 30%,#1c1008 0%,#0a0603 55%,#000 100%); }
+    #stage-wall::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(180deg, transparent 0px, transparent 38px, rgba(255,255,255,.018) 38px, rgba(255,255,255,.018) 39px); }
+    #stage-wall::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 110% 90% at 50% 50%, transparent 30%, rgba(0,0,0,.72) 100%); }
+    #floor { position: absolute; bottom: 0; left: -10%; width: 120%; height: 38%; background: linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.3) 60%,transparent 100%), repeating-linear-gradient(92deg,#1a0e08 0px,#1a0e08 58px,#120a05 58px,#120a05 60px,#1e1209 60px,#1e1209 118px,#0e0703 118px,#0e0703 120px); transform: perspective(600px) rotateX(55deg); transform-origin: bottom center; z-index: 2; }
+    #floor::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom,rgba(180,120,60,.06) 0%,transparent 50%); }
+    #spotlight { position: absolute; top: -5%; left: 50%; transform: translateX(-50%); width: 65vw; height: 110vh; background: conic-gradient(from 270deg at 50% 0%, transparent 28deg, rgba(255,240,180,.22) 48deg, rgba(255,248,210,.32) 60deg, rgba(255,240,180,.22) 72deg, transparent 92deg); pointer-events: none; z-index: 3; mix-blend-mode: screen; opacity: .2; }
+    #spotlight::after { content: ''; position: absolute; bottom: -5%; left: 50%; transform: translateX(-50%); width: 50%; height: 22%; background: radial-gradient(ellipse, rgba(255,230,140,.35), transparent 70%); border-radius: 50%; }
+    #batten { position: absolute; top: 0; left: 0; width: 100%; height: 28px; background: linear-gradient(180deg,#0a0603 0%,#1a1008 60%,transparent 100%); z-index: 4; }
+    #batten::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 100%; height: 6px; background: repeating-linear-gradient(90deg, transparent 0px, transparent 80px, rgba(255,200,80,.35) 80px, rgba(255,200,80,.35) 84px); }
+    #wing-l, #wing-r { position: absolute; top: 0; width: 18%; height: 100%; z-index: 3; pointer-events: none; }
+    #wing-l { left: 0; background: linear-gradient(to right, rgba(0,0,0,.85), transparent); }
+    #wing-r { right: 0; background: linear-gradient(to left, rgba(0,0,0,.85), transparent); }
+    .dust { position: absolute; background: #fff; border-radius: 50%; opacity: 0; pointer-events: none; z-index: 4; }
+
+    #three-canvas { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
+    #drag { position: absolute; inset: 0; z-index: 20; cursor: grab; }
+    #drag:active { cursor: grabbing; }
+
+  /* ── Dark mode overrides ── */
+  .dark body { background: #1a1410; color: #e8d8cd; }
+  .dark .bg-soft { background: #1a1410 !important; }
+  .dark .bg-cream { background: #241b16 !important; }
+  .dark .bg-white { background: #2d2320 !important; }
+  .dark .text-mocha { color: #e8d8cd !important; }
+  .dark .text-mocha\/70 { color: rgba(232,216,205,0.7) !important; }
+  .dark .text-mocha\/80 { color: rgba(232,216,205,0.8) !important; }
+  .dark .text-mocha\/60 { color: rgba(232,216,205,0.6) !important; }
+  .dark .text-mocha\/40 { color: rgba(232,216,205,0.4) !important; }
+  .dark .border-blush\/30 { border-color: rgba(120,90,80,0.3) !important; }
+  .dark .border-blush\/20 { border-color: rgba(120,90,80,0.2) !important; }
+  .dark .border-blush\/40 { border-color: rgba(120,90,80,0.4) !important; }
+  .dark .border-gold\/40 { border-color: rgba(176,138,74,0.5) !important; }
+  .dark .border-gold\/15 { border-color: rgba(176,138,74,0.2) !important; }
+  .dark .glass {
+    background: rgba(45,35,30,0.78) !important;
+    border-color: rgba(176,138,74,0.18) !important;
+  }
+  .dark .event-card {
+    background: rgba(45,35,30,0.9);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  }
+  .dark .event-card:hover { box-shadow: 0 32px 64px rgba(0,0,0,0.45); }
+  .dark .prog-card { background: rgba(45,35,30,0.9); }
+  .dark .hero-overlay {
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.55) 100%),
+      linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.55) 100%);
+  }
+  .dark .soft-frame { box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+  .dark .slider-dot { background: rgba(212,196,188,0.3); }
+  .dark .slider-dot.active { background: #B08A4A; }
+  .dark input, .dark textarea, .dark select {
+    background: rgba(45,35,30,0.8) !important;
+    color: #e8d8cd !important;
+    border-color: rgba(176,138,74,0.3) !important;
+  }
+  .dark input::placeholder, .dark textarea::placeholder { color: rgba(232,216,205,0.5) !important; }
+  .dark select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23e8d8cd' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+  .dark .prog-card:hover { box-shadow: 0 32px 64px rgba(0,0,0,0.45); }
+
+  .dark .theme-toggle {
+    background: #2d2320;
+    color: #e8d8cd;
+    border-color: rgba(176,138,74,0.3);
+  }
+  .dark .theme-toggle:hover { background: #3a2d28; }
+
+  /* ── Mobile floating action button menu ── */
+  #mobileFabToggle.open { transform: rotate(45deg); }
+  #mobileFabMenu {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: all .3s ease;
+  }
+  #mobileFabMenu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  </style>
+  <script>
+    (function() {
+      if (localStorage.getItem('destinalite-theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- ══ CURTAIN LOADER ══ -->
+<div id="curtain-loader">
+  <div id="bg">
+    <div id="stage-wall"></div>
+    <div id="batten"></div>
+    <div id="wing-l"></div>
+    <div id="wing-r"></div>
+    <div id="floor"></div>
+    <div id="spotlight"></div>
+    <div id="dust-container"></div>
+  </div>
+
+  <canvas id="three-canvas"></canvas>
+  <div id="drag"></div>
+</div>
+
+<div class="cursor-glow hidden md:block"></div>
+
+<!-- ══ NAVBAR ══ -->
+<header class="navbar fixed top-0 left-0 w-full z-50 glass">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" id="logoLink" class="magnetic flex items-center">
+      <span class="gold-text text-2xl md:text-3xl italic font-semibold tracking-wide leading-none">Destinalite</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8 text-base text-mocha font-sans">
+      <a href="index.html"       class="hover:text-gold transition">Anasayfa</a>
+      <a href="etkinlikler.html" class="hover:text-gold transition">Etkinlikler</a>
+      <a href="hakkimizda.html"  class="hover:text-gold transition">Hakkımızda</a>
+      <div class="relative group">
+        <button class="hover:text-gold transition flex items-center gap-1">
+          İçerikler
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-lg border border-blush/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 flex flex-col z-50">
+          <a href="egitimler.html" class="block px-4 py-2 hover:bg-cream hover:text-gold transition">Eğitimler</a>
+          <a href="egitim-personeli.html" class="block px-4 py-2 hover:bg-cream hover:text-gold transition">Eğitim Personeli</a>
+          <a href="dersprogrami.html" class="block px-4 py-2 hover:bg-cream hover:text-gold transition">Ders Programı</a>
+        </div>
+      </div>
+      <a href="blog.html"         class="hover:text-gold transition">Blog</a>
+      <a href="iletisim.html"    class="hover:text-gold transition">İletişim</a>
+      <a href="tel:05555555555" class="magnetic px-5 py-2 rounded-full bg-rose text-white text-sm hover:bg-mocha transition shadow-md">
+        ☎ 0555 555 5555
+      </a>
+    <div class="hidden md:flex items-center gap-2 text-sm font-sans border-l border-blush/40 pl-4 ml-2">
+      <button class="lang-btn text-gold font-medium" data-lang="tr">TR</button>
+      <span class="text-blush">/</span>
+      <button class="lang-btn text-mocha/70 hover:text-gold transition" data-lang="en">EN</button>
+    </div>
+    <div class="flex md:hidden items-center gap-2 text-sm font-sans border-r border-blush/40 pr-3 mr-2">
+      <button class="lang-btn text-gold font-medium" data-lang="tr">TR</button>
+      <span class="text-blush">/</span>
+      <button class="lang-btn text-mocha/70 hover:text-gold transition" data-lang="en">EN</button>
+    </div>
+
+    </div>
+
+    <button id="menuBtn" class="md:hidden text-2xl text-mocha">☰</button>
+  </nav>
+  <div id="mobileMenu" class="hidden md:hidden px-6 pb-5 space-y-3 text-base text-mocha font-sans border-t border-blush/30">
+  <div class="flex items-center gap-3 px-6 py-3 text-sm font-sans border-b border-blush/20">
+    <span class="text-mocha/70">Dil:</span>
+    <button class="lang-btn text-gold font-medium" data-lang="tr">TR</button>
+    <span class="text-blush">/</span>
+    <button class="lang-btn text-mocha/70 hover:text-gold transition" data-lang="en">EN</button>
+  </div>
+    <a href="index.html"       class="block py-2 border-b border-blush/20">Anasayfa</a>
+    <a href="etkinlikler.html" class="block py-2 border-b border-blush/20">Etkinlikler</a>
+    <a href="hakkimizda.html"  class="block py-2 border-b border-blush/20">Hakkımızda</a>
+    <div class="border-b border-blush/20">
+      <button id="contentToggle" class="w-full flex justify-between items-center py-2 hover:text-gold transition">
+        <span>İçerikler</span>
+        <span id="contentArrow" class="transform transition-transform">▼</span>
+      </button>
+      <div id="contentSubmenu" class="hidden pl-4 pb-2 space-y-2 text-sm">
+        <a href="egitimler.html" class="block py-1 hover:text-gold transition">Eğitimler</a>
+        <a href="egitim-personeli.html" class="block py-1 hover:text-gold transition">Eğitim Personeli</a>
+        <a href="dersprogrami.html" class="block py-1 hover:text-gold transition">Ders Programı</a>
+      </div>
+    </div>
+    <a href="blog.html"         class="block py-2 border-b border-blush/20">Blog</a>
+    <a href="iletisim.html"   class="block py-2">İletişim</a>
+    <a href="iletisim.html" class="inline-block mt-2 px-6 py-2 rounded-full bg-rose text-white text-sm">Randevu Al</a>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section id="anasayfa" class="hero">
+  <div class="hero-slider">
+    <div class="hero-slide active" style="background-image:url('assets/herobg.png')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1600&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=1600&q=80')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-card">
+    <img src="assets/destinalitelogo.png" alt="Destinalite" class="hero-logo mb-2">
+
+    <div class="hero-divider"></div>
+
+    <h2 class="hero-sub text-2xl md:text-4xl text-white mb-3" style="font-weight:300">
+      Sanatla büyüyen çocuklar
+    </h2>
+
+    <p class="hero-desc text-base md:text-lg text-white/90 max-w-sm mx-auto leading-relaxed font-sans font-normal mb-6">
+      Bale ve müzik eğitimi ile disiplin, estetik ve özgüven kazandırıyoruz.
+    </p>
+
+    <div class="hero-btns flex flex-wrap gap-3 justify-center">
+      <a href="#randevu" class="hero-btn hero-btn-secondary magnetic">Ücretsiz Deneme Dersi</a>
+      <a href="vokal-analiz.html" class="hero-btn hero-btn-accent magnetic">Vokal & Frekans Analizi</a>
+      <a href="#egitimler" class="hero-btn hero-btn-primary magnetic">Programları İncele →</a>
+    </div>
+
+    <div class="hero-dots">
+      <span class="slider-dot active" data-slide="0"></span>
+      <span class="slider-dot" data-slide="1"></span>
+      <span class="slider-dot" data-slide="2"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ETKİNLİKLER & DUYURULAR ══ -->
+<section id="etkinlikler" class="py-24 bg-cream overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center reveal-header mb-16">
+      <p class="text-gold tracking-[.4em] uppercase text-sm font-sans mb-3">Etkinlikler & Duyurular</p>
+      <h2 class="text-4xl md:text-6xl italic text-mocha">Yaklaşan Etkinlikler</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 reveal-stagger">
+
+      <div class="event-card">
+        <div class="relative h-56 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80" alt="Açılış Gecesi" class="event-img w-full h-full object-cover">
+          <div class="absolute top-4 left-4 glass rounded-xl px-4 py-2 text-center min-w-[4.5rem]">
+            <p class="text-2xl font-bold text-mocha leading-none">24</p>
+            <p class="text-xs uppercase tracking-wider text-gold mt-1">Eki</p>
+          </div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-2xl italic text-mocha mb-2">Açılış Gecesi</h3>
+          <p class="text-sm text-mocha/70 font-sans font-light mb-4 flex-1">Yeni sezon açılış gecesinde öğrencilerimiz sahnede olacak.</p>
+          <div class="flex items-center gap-2 text-sm text-gold font-sans">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-6-4.35-6-9.75A6 6 0 0 1 12 5a6 6 0 0 1 6 6.25C18 16.65 12 21 12 21z"/><circle cx="12" cy="11" r="2"/></svg>
+            <span>Destinalite Stüdyo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="relative h-56 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=600&q=80" alt="Piyano Resitali" class="event-img w-full h-full object-cover">
+          <div class="absolute top-4 left-4 glass rounded-xl px-4 py-2 text-center min-w-[4.5rem]">
+            <p class="text-2xl font-bold text-mocha leading-none">08</p>
+            <p class="text-xs uppercase tracking-wider text-gold mt-1">Kas</p>
+          </div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-2xl italic text-mocha mb-2">Piyano Resitali</h3>
+          <p class="text-sm text-mocha/70 font-sans font-light mb-4 flex-1">Öğrencilerimizden duygusal bir piyano akşamı.</p>
+          <div class="flex items-center gap-2 text-sm text-gold font-sans">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-6-4.35-6-9.75A6 6 0 0 1 12 5a6 6 0 0 1 6 6.25C18 16.65 12 21 12 21z"/><circle cx="12" cy="11" r="2"/></svg>
+            <span>Konser Salonu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="relative h-56 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=600&q=80" alt="Bale Atölyesi" class="event-img w-full h-full object-cover">
+          <div class="absolute top-4 left-4 glass rounded-xl px-4 py-2 text-center min-w-[4.5rem]">
+            <p class="text-2xl font-bold text-mocha leading-none">15</p>
+            <p class="text-xs uppercase tracking-wider text-gold mt-1">Kas</p>
+          </div>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-2xl italic text-mocha mb-2">Bale Atölyesi</h3>
+          <p class="text-sm text-mocha/70 font-sans font-light mb-4 flex-1">Ücretsiz deneme atölyemizle tanışın, kayıtlar devam ediyor.</p>
+          <div class="flex items-center gap-2 text-sm text-gold font-sans">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-6-4.35-6-9.75A6 6 0 0 1 12 5a6 6 0 0 1 6 6.25C18 16.65 12 21 12 21z"/><circle cx="12" cy="11" r="2"/></svg>
+            <span>Destinalite Stüdyo</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEDEN DESTİNALİTE ══ -->
+<section id="neden" class="py-24 bg-soft overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <div class="reveal-header mb-6">
+        <p class="text-gold tracking-[.4em] uppercase text-sm font-sans mb-3">Hakkımızda</p>
+        <h2 class="text-4xl md:text-6xl italic text-mocha">Neden Destinalite?</h2>
+      </div>
+      <ul class="space-y-3 text-lg text-mocha/80 font-sans font-light">
+        <li class="check-item">Avrupa standartlarında eğitim</li>
+        <li class="check-item">Kendi özgün müfredatımız</li>
+        <li class="check-item">Butik ve bireysel yaklaşım</li>
+        <li class="check-item">Sanat ve sosyal deneyim</li>
+      </ul>
+      <a href="#randevu" class="magnetic inline-block mt-8 px-7 py-3 rounded-full bg-rose text-white text-sm font-sans hover:bg-mocha transition shadow-md">
+        Bize Katılın
+      </a>
+    </div>
+
+    <div class="reveal relative">
+      <div class="absolute -inset-6 bg-blush/30 rounded-full blur-3xl pointer-events-none"></div>
+      <img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&w=900&q=85"
+           alt="Destinalite stüdyo"
+           class="relative rounded-[2.5rem] soft-frame w-full object-cover" style="max-height:480px;object-position:center" />
+      <!-- Floating badge -->
+      <div class="absolute -bottom-4 -left-4 glass rounded-2xl px-5 py-3 shadow-lg">
+        <p class="text-2xl italic gold-text font-bold">Destinalite</p>
+        <p class="text-xs text-mocha font-sans tracking-wider uppercase mt-0.5">Sanat Akademisi</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- marquee kaldırıldı -->
+
+<!-- ══ EĞİTİM PROGRAMLARI ══ -->
+<section id="egitimler" class="relative py-24 bg-soft overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center reveal-header mb-12">
+      <p class="text-gold tracking-[.4em] uppercase text-sm font-sans mb-3">Programlar</p>
+      <h2 class="text-4xl md:text-6xl italic text-mocha">Eğitim Programlarımız</h2>
+    </div>
+  </div>
+
+  <div id="programCarousel" class="flex items-stretch overflow-x-auto gap-8 snap-x snap-mandatory py-10 px-[12.5vw] md:px-[calc(50vw-14rem)] no-scrollbar scroll-smooth cursor-grab select-none">
+    <!-- Programlar dinamik olarak yükleniyor -->
+  </div>
+
+  <!-- Slider nav buttons -->
+  <button id="prevProgram" class="hidden md:flex absolute top-1/2 -translate-y-1/2 left-4 lg:left-8 z-20 items-center justify-center w-12 h-12 rounded-full bg-white/90 border border-gold/40 text-mocha hover:bg-rose hover:text-white hover:border-rose transition shadow-lg" aria-label="Önceki program">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+  <button id="nextProgram" class="hidden md:flex absolute top-1/2 -translate-y-1/2 right-4 lg:right-8 z-20 items-center justify-center w-12 h-12 rounded-full bg-white/90 border border-gold/40 text-mocha hover:bg-rose hover:text-white hover:border-rose transition shadow-lg" aria-label="Sonraki program">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+
+  <div class="max-w-7xl mx-auto px-6 text-center mt-8 reveal">
+    <a href="egitimler.html" class="magnetic inline-block px-8 py-3.5 rounded-full border border-gold/40 text-mocha text-sm font-sans hover:bg-rose hover:text-white hover:border-rose transition">
+      Daha Fazla →
+    </a>
+  </div>
+</section>
+
+<script>
+  fetch('data/programs' + (sessionStorage.getItem('destinalite-lang') === 'en' ? '-en' : '') + '.json')
+    .then(r => r.json())
+    .then(data => {
+      const container = document.getElementById('programCarousel');
+      const cardHtml = data.programs.map(p => `
+        <div class="program-card-wrapper">
+          <div class="prog-card p-8 text-center h-full flex flex-col">
+            <img src="${p.image}" alt="${p.title}" class="w-full h-48 object-cover rounded-2xl mb-6 soft-frame">
+            <h3 class="text-3xl italic text-mocha mb-3">${p.title}</h3>
+            <ul class="text-mocha/70 font-sans font-light text-sm space-y-1 mb-4 flex-grow">
+              ${p.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+            <p class="text-sm text-mocha/60 font-sans font-light mb-6">${p.short}</p>
+            <a href="egitim-detay.html?slug=${p.slug}" class="inline-block mt-auto px-6 py-2.5 rounded-full border border-gold/40 text-mocha text-sm font-sans hover:bg-rose hover:text-white hover:border-rose transition">
+              Detaylı Bilgi
+            </a>
+          </div>
+        </div>
+      `).join('');
+      container.innerHTML = cardHtml + cardHtml + cardHtml;
+      if (window.applyLanguage) window.applyLanguage();
+
+      const wrappers = Array.from(container.querySelectorAll('.program-card-wrapper'));
+      const N = data.programs.length;
+      const setWidth = wrappers[N].offsetLeft - wrappers[0].offsetLeft;
+      let currentIndex = 0;
+      let isAutoScrolling = false;
+      let autoplayTimer, resumeTimer;
+
+      function scrollToCard(index, duration = 0.6) {
+        if (!wrappers[index]) return;
+        const target = wrappers[index].offsetLeft + wrappers[index].offsetWidth / 2 - container.clientWidth / 2;
+        currentIndex = index;
+        isAutoScrolling = true;
+        gsap.killTweensOf(container);
+        container.style.scrollSnapType = 'none';
+        gsap.to(container, {
+          scrollLeft: target,
+          duration: duration,
+          ease: 'power3.inOut',
+          onComplete: () => {
+            // Infinite loop: silently jump back to the middle clone set
+            if (currentIndex >= 2 * N) {
+              container.scrollLeft -= setWidth;
+              currentIndex -= N;
+            } else if (currentIndex < N) {
+              container.scrollLeft += setWidth;
+              currentIndex += N;
+            }
+            container.style.scrollSnapType = '';
+            isAutoScrolling = false;
+            updateActiveProgram();
+          }
+        });
+      }
+
+      function updateActiveProgram() {
+        const center = container.scrollLeft + container.clientWidth / 2;
+        let activeIndex = 0;
+        let minDist = Infinity;
+        wrappers.forEach((w, i) => {
+          const wCenter = w.offsetLeft + w.offsetWidth / 2;
+          const dist = Math.abs(center - wCenter);
+          if (dist < minDist) {
+            minDist = dist;
+            activeIndex = i;
+          }
+        });
+        wrappers.forEach((w, i) => w.classList.toggle('active', i === activeIndex));
+        currentIndex = activeIndex;
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(() => {
+          const next = currentIndex + 1;
+          scrollToCard(next, 0.8);
+        }, 4000);
+      }
+      function stopAutoplay() {
+        clearInterval(autoplayTimer);
+        clearTimeout(resumeTimer);
+      }
+
+      // Initial position (middle clone set)
+      const startIndex = N + Math.min(1, N - 1);
+      if (wrappers[startIndex]) {
+        requestAnimationFrame(() => {
+          scrollToCard(startIndex, 0.6);
+          updateActiveProgram();
+        });
+      }
+
+      // Auto scroll + pause on interaction
+      container.addEventListener('scroll', () => {
+        if (isDragging) return; // drag loop handles everything
+        updateActiveProgram();
+        if (!isAutoScrolling) {
+          stopAutoplay();
+          // Infinite loop correction for manual scroll
+          if (currentIndex >= 2 * N) {
+            isAutoScrolling = true;
+            container.style.scrollSnapType = 'none';
+            container.scrollLeft -= setWidth;
+            currentIndex -= N;
+            setTimeout(() => { isAutoScrolling = false; container.style.scrollSnapType = ''; }, 50);
+          } else if (currentIndex < N) {
+            isAutoScrolling = true;
+            container.style.scrollSnapType = 'none';
+            container.scrollLeft += setWidth;
+            currentIndex += N;
+            setTimeout(() => { isAutoScrolling = false; container.style.scrollSnapType = ''; }, 50);
+          }
+          resumeTimer = setTimeout(startAutoplay, 4000);
+        }
+      });
+
+      container.addEventListener('mouseenter', stopAutoplay);
+      container.addEventListener('mouseleave', () => {
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(startAutoplay, 4000);
+      });
+      container.addEventListener('touchstart', stopAutoplay, { passive: true });
+      container.addEventListener('touchend', () => {
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(startAutoplay, 4000);
+      });
+
+      // Prev / Next buttons
+      const prevBtn = document.getElementById('prevProgram');
+      const nextBtn = document.getElementById('nextProgram');
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          stopAutoplay();
+          const idx = currentIndex - 1;
+          scrollToCard(idx, 0.6);
+          resumeTimer = setTimeout(startAutoplay, 4000);
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          stopAutoplay();
+          const idx = currentIndex + 1;
+          scrollToCard(idx, 0.6);
+          resumeTimer = setTimeout(startAutoplay, 4000);
+        });
+      }
+
+      // Mouse drag to scroll with smooth lerp
+      let isDown = false, isDragging = false, startX, scrollLeft, targetScroll, dragVelocity = 0, lastX, dragRafId;
+      function smoothDrag() {
+        if (!isDragging) return;
+        // Lerp toward the target for buttery motion
+        container.scrollLeft += (targetScroll - container.scrollLeft) * 0.25;
+
+        // Keep active card in sync
+        updateActiveProgram();
+
+        // Infinite loop correction while dragging
+        if (currentIndex >= 2 * N) {
+          const shift = setWidth;
+          container.scrollLeft -= shift;
+          targetScroll -= shift;
+          scrollLeft -= shift;
+          currentIndex -= N;
+        } else if (currentIndex < N) {
+          const shift = setWidth;
+          container.scrollLeft += shift;
+          targetScroll += shift;
+          scrollLeft += shift;
+          currentIndex += N;
+        }
+        wrappers.forEach((w, i) => w.classList.toggle('active', i === currentIndex));
+
+        dragRafId = requestAnimationFrame(smoothDrag);
+      }
+
+      container.addEventListener('mousedown', e => {
+        isDown = true;
+        isDragging = true;
+        dragVelocity = 0;
+        lastX = e.pageX;
+        stopAutoplay();
+        gsap.killTweensOf(container);
+        container.style.scrollSnapType = 'none';
+        container.classList.add('cursor-grabbing');
+        container.classList.remove('cursor-grab');
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+        targetScroll = container.scrollLeft;
+        dragRafId = requestAnimationFrame(smoothDrag);
+      });
+      container.addEventListener('mouseleave', () => {
+        if (!isDown) return;
+        isDown = false;
+        isDragging = false;
+        cancelAnimationFrame(dragRafId);
+        container.classList.remove('cursor-grabbing');
+        container.classList.add('cursor-grab');
+        applyInertiaAndSnap();
+      });
+      container.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        isDragging = false;
+        cancelAnimationFrame(dragRafId);
+        container.classList.remove('cursor-grabbing');
+        container.classList.add('cursor-grab');
+        applyInertiaAndSnap();
+      });
+      container.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        targetScroll = scrollLeft - walk;
+        dragVelocity = e.pageX - lastX;
+        lastX = e.pageX;
+      });
+
+      function applyInertiaAndSnap() {
+        const projected = container.scrollLeft - dragVelocity * 8;
+        let nearestIndex = 0;
+        let minDist = Infinity;
+        wrappers.forEach((w, i) => {
+          const target = w.offsetLeft + w.offsetWidth / 2 - container.clientWidth / 2;
+          const dist = Math.abs(projected - target);
+          if (dist < minDist) {
+            minDist = dist;
+            nearestIndex = i;
+          }
+        });
+        const target = wrappers[nearestIndex].offsetLeft + wrappers[nearestIndex].offsetWidth / 2 - container.clientWidth / 2;
+        const distance = target - container.scrollLeft;
+        const duration = Math.min(0.8, Math.max(0.3, Math.abs(distance) / 1000));
+        scrollToCard(nearestIndex, duration);
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(startAutoplay, 4000);
+      }
+
+      startAutoplay();
+
+      // Scroll-triggered entrance for program cards
+      gsap.from('.program-card-wrapper', {
+        opacity: 0,
+        y: 50,
+        scale: 0.92,
+        rotate: 2,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '#programCarousel', start: 'top 80%' }
+      });
+    })
+    .catch(err => {
+      const container = document.getElementById('programCarousel');
+      container.innerHTML = '<p class="text-center text-mocha">Programlar yüklenirken hata oluştu.</p>';
+      if (window.applyLanguage) window.applyLanguage();
+      console.error(err);
+    });
+</script>
+
+<!-- ══ RANDEVU ══ -->
+<section id="randevu" class="relative py-24 bg-soft overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(232,207,198,.5),transparent 70%)"></div>
+  <div class="relative max-w-4xl mx-auto px-6 text-center reveal-header">
+    <p class="text-gold tracking-[.4em] uppercase text-sm font-sans mb-3">Randevu</p>
+    <h2 class="text-4xl md:text-6xl italic gold-text mb-3">Deneme Dersine Davetlisiniz</h2>
+    <p class="text-mocha/70 font-sans font-light mb-10">Çocuğunuzun sanat yolculuğu için ilk adımı atın.</p>
+  </div>
+
+  <div class="relative max-w-4xl mx-auto px-6 reveal">
+    <form class="grid md:grid-cols-2 gap-4 text-left glass rounded-[2.5rem] p-8 shadow-xl" novalidate>
+      <input type="text"   placeholder="Ad Soyad"       class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm" />
+      <input type="tel"    placeholder="Telefon"         class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm" />
+      <input type="number" placeholder="Çocuğun Yaşı" min="3" max="18" class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm" />
+      <select class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm text-mocha">
+        <option value="">İlgilenilen Program</option>
+        <option>Bale</option>
+        <option>Piyano</option>
+        <option>Sahne Sanatları</option>
+      </select>
+      <textarea rows="4" placeholder="Mesajınız" class="md:col-span-2 p-4 rounded-[1.5rem] bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm resize-none"></textarea>
+      <button type="submit" class="magnetic md:col-span-2 mx-auto px-12 py-4 rounded-full bg-rose text-white font-sans text-sm hover:bg-mocha transition shadow-lg">
+        Randevu Talebi Gönder
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="iletisim" class="py-16 bg-cream text-center border-t border-blush/30">
+  <h2 class="text-5xl italic gold-text mb-3">Destinalite</h2>
+  <p class="text-mocha/70 font-sans font-light text-sm mb-4">Adres: Osmaniye, Türkiye &nbsp;|&nbsp; Tel: 0555 555 5555</p>
+  <div class="flex justify-center gap-6 text-sm font-sans">
+    <a href="#" class="text-gold hover:text-mocha transition">Instagram</a>
+    <span class="text-blush">·</span>
+    <a href="#" class="text-gold hover:text-mocha transition">WhatsApp</a>
+    <span class="text-blush">·</span>
+    <a href="mailto:info@destinalite.com" class="text-gold hover:text-mocha transition">E-posta</a>
+  </div>
+  <p class="mt-6 text-xs text-mocha/40 font-sans">© 2025 Destinalite Sanat Akademisi</p>
+</footer>
+<!-- ══ SABİT BUTONLAR ══ -->
+<a href="https://wa.me/905555555555" target="_blank" rel="noopener" aria-label="WhatsApp" class="hidden md:flex fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<button id="themeToggle" aria-label="Karanlık mod" title="Karanlık mod" class="theme-toggle hidden md:flex fixed bottom-24 right-6 z-50 w-12 h-12 rounded-full bg-white text-mocha items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 border border-blush/30">
+  <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
+<button id="scrollTopBtn" aria-label="Yukarı çık" class="hidden md:flex fixed bottom-40 right-6 z-50 w-12 h-12 rounded-full bg-gold text-white items-center justify-center shadow-lg opacity-0 translate-y-4 pointer-events-none transition-all duration-300 hover:scale-110">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+<!-- ══ MOBİL FAB MENÜ ══ -->
+<div class="md:hidden fixed bottom-6 right-6 z-50">
+  <div id="mobileFabMenu" class="absolute bottom-16 right-0 flex flex-col items-center gap-4">
+    <button class="theme-toggle w-12 h-12 rounded-full bg-white text-mocha flex items-center justify-center shadow-lg transition-all duration-300 border border-blush/30" aria-label="Karanlık mod" title="Karanlık mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+    <a href="https://wa.me/905555555555" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+    </a>
+  </div>
+  <button id="mobileFabToggle" aria-label="Menü" class="w-14 h-14 rounded-full bg-gold text-white flex items-center justify-center shadow-lg transition-transform duration-300">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+  </button>
+</div>
+
+
+<script>
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+  // Lenis smooth scroll
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 2,
+    infinite: false,
+  });
+
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
+
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.add('hidden');
+    });
+  });
+
+  // Mobile submenu toggle
+  const contentToggle = document.getElementById('contentToggle');
+  const contentSubmenu = document.getElementById('contentSubmenu');
+  const contentArrow = document.getElementById('contentArrow');
+  if (contentToggle && contentSubmenu && contentArrow) {
+    contentToggle.addEventListener('click', () => {
+      contentSubmenu.classList.toggle('hidden');
+      contentArrow.classList.toggle('rotate-180');
+    });
+  }
+
+  // Smooth scroll
+  document.querySelectorAll("a[href^='#']").forEach(link => {
+    link.addEventListener('click', e => {
+      const t = document.querySelector(link.getAttribute('href'));
+      if (!t) return;
+      e.preventDefault();
+      lenis.scrollTo(t, { offset: -80, duration: 1.2 });
+      document.getElementById('mobileMenu').classList.add('hidden');
+    });
+  });
+
+  // Smooth scroll on page load when URL has a hash
+  window.addEventListener('load', () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const t = document.querySelector(hash);
+      if (t) {
+        lenis.scrollTo(t, { offset: -80, duration: 1.2 });
+      }
+    }
+  });
+
+  // Logo click: smooth scroll to top on homepage, navigate to homepage on other pages
+  document.getElementById('logoLink').addEventListener('click', e => {
+    const isHome = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '';
+    if (isHome && window.scrollY > 0) {
+      e.preventDefault();
+      lenis.scrollTo(0, { duration: 1.2 });
+    }
+  });
+
+  // Fixed scroll-to-top button
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('opacity-0', window.scrollY <= 300);
+      scrollTopBtn.classList.toggle('translate-y-4', window.scrollY <= 300);
+      scrollTopBtn.classList.toggle('pointer-events-none', window.scrollY <= 300);
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      lenis.scrollTo(0, { duration: 1.2 });
+    });
+  }
+
+  // Hero entrance
+  const heroCard = document.querySelector('.hero-card');
+  if (heroCard) {
+    gsap.timeline({ delay: .2 })
+      .from(heroCard,     { opacity: 0, y: 50, duration: 1, ease: 'power3.out' })
+      .from('.hero-logo',  { opacity: 0, y: 30,  duration: 1, ease: 'power4.out' }, '-=.6')
+      .from('.hero-divider', { opacity: 0, scaleX: 0, duration: .7 }, '-=.6')
+      .from('.hero-sub',    { opacity: 0, y: 20,  duration: .8 }, '-=.5')
+      .from('.hero-desc',   { opacity: 0, y: 20,  duration: .7 }, '-=.4')
+      .from('.hero-btn',    { opacity: 0, y: 20,  stagger: .12, duration: .7 }, '-=.4')
+      .from('.hero-dots',   { opacity: 0, y: 10,  duration: .5 }, '-=.3');
+  }
+
+  // Hero parallax
+  if (document.querySelector('.hero-slider')) {
+    gsap.to('.hero-slider', {
+      yPercent: 20,
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+  }
+
+  // Hero slider
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.slider-dot');
+  if (slides.length && dots.length) {
+    let currentSlide = 0, slideTimer;
+    function goToSlide(i) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = (i + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+    function nextSlide() { goToSlide(currentSlide + 1); }
+    function resetSlider() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5000); }
+    dots.forEach((d, i) => d.addEventListener('click', () => { goToSlide(i); resetSlider(); }));
+    slideTimer = setInterval(nextSlide, 5000);
+  }
+
+  // Reveal
+  gsap.utils.toArray('.reveal').forEach(el => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 60 },
+      { opacity: 1, y: 0, duration: 1.1, ease: 'power4.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' } }
+    );
+  });
+
+  // Scroll progress bar
+  gsap.to('#scroll-progress', {
+    width: '100%',
+    ease: 'none',
+    scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: true }
+  });
+
+  // Staggered section headers
+  gsap.utils.toArray('.reveal-header').forEach(header => {
+    gsap.from(header.children, {
+      opacity: 0,
+      y: 40,
+      scale: 0.98,
+      stagger: 0.12,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: header, start: 'top 85%' }
+    });
+  });
+
+  // Staggered event cards
+  const eventGrid = document.querySelector('.reveal-stagger');
+  if (eventGrid) {
+    gsap.from('.reveal-stagger .event-card', {
+      opacity: 0,
+      y: 60,
+      scale: 0.95,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: eventGrid, start: 'top 80%' }
+    });
+  }
+
+  // Neden section parallax and checklist
+  if (document.querySelector('#neden')) {
+    gsap.to('#neden img', {
+      yPercent: -12,
+      scrollTrigger: { trigger: '#neden', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+    gsap.from('.check-item', {
+      opacity: 0,
+      x: -30,
+      stagger: 0.1,
+      duration: 0.6,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: '#neden', start: 'top 75%' }
+    });
+  }
+
+  // Story panels
+  gsap.utils.toArray('.story-panel').forEach((panel, i) => {
+    gsap.to(panel, { opacity: 1, scale: 1, duration: .5,
+      scrollTrigger: { trigger: '.section-pin', start: `${i*25}% top`, end: `${(i+1)*25}% top`, scrub: true }
+    });
+    gsap.to(panel, { opacity: 0, scale: 1.08, duration: .5,
+      scrollTrigger: { trigger: '.section-pin', start: `${(i+.7)*25}% top`, end: `${(i+1)*25}% top`, scrub: true }
+    });
+  });
+
+  // Cursor glow
+  const glow = document.querySelector('.cursor-glow');
+  window.addEventListener('mousemove', e => {
+    gsap.to(glow, { x: e.clientX, y: e.clientY, duration: .4, ease: 'power2.out' });
+  });
+
+  // Magnetic
+  document.querySelectorAll('.magnetic').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      gsap.to(el, { x: (e.clientX - r.left - r.width/2) * .15, y: (e.clientY - r.top - r.height/2) * .15, duration: .3 });
+    });
+    el.addEventListener('mouseleave', () => {
+      gsap.to(el, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1,.4)' });
+    });
+  });
+
+    function petal() {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.innerHTML = '✦';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (6 + Math.random() * 7) + 's';
+    p.style.fontSize = (10 + Math.random() * 14) + 'px';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 14000);
+  }
+  setInterval(petal, 500);
+</script>
+
+<script>
+(function() {
+  if (sessionStorage.getItem('curtainShown')) {
+    var overlay = document.getElementById('curtain-loader');
+    if (overlay) overlay.remove();
+    document.body.classList.remove('curtain-loader-active');
+    return;
+  }
+  sessionStorage.setItem('curtainShown', 'true');
+
+  document.body.classList.add('curtain-loader-active');
+  var curtainActive = true;
+
+  var W = window.innerWidth, H = window.innerHeight;
+  var isMobile = W < 768;
+
+  var renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById('three-canvas'),
+    alpha: true, antialias: true
+  });
+
+  renderer.setPixelRatio(isMobile ? 1 : Math.min(devicePixelRatio, 2));
+  renderer.setSize(W, H);
+
+  renderer.shadowMap.enabled = !isMobile;
+  if (!isMobile) {
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  }
+
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+
+  var scene  = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(52, W / H, 0.01, 100);
+  camera.position.set(0, 0.3, 4.2);
+
+  var spotLight = new THREE.SpotLight(0xfff5dc, 6, 40, Math.PI / 3, 0.3, 1.5);
+  spotLight.target.position.set(0, 5, 1);
+  spotLight.castShadow = !isMobile;
+  if (!isMobile) {
+    spotLight.shadow.mapSize.width = 2048;
+    spotLight.shadow.mapSize.height = 2048;
+  }
+  scene.add(spotLight);
+  scene.add(spotLight.target);
+
+  var fillLight = new THREE.PointLight(0x3a1a0a, 1.0, 14);
+  fillLight.position.set(0, -3, 2);
+  scene.add(fillLight);
+
+  var rimLight = new THREE.PointLight(0x1a0005, 1.5, 10);
+  rimLight.position.set(-4, 2, -1);
+  scene.add(rimLight);
+
+  scene.add(new THREE.AmbientLight(0x110008, 2.5));
+
+  function makeVelvetTexture() {
+    var size = 512;
+    var c = document.createElement('canvas');
+    c.width = c.height = size;
+    var ctx = c.getContext('2d');
+
+    ctx.fillStyle = '#4a0000';
+    ctx.fillRect(0, 0, size, size);
+
+    var threadCount = 800;
+    for (var i = 0; i < threadCount; i++) {
+      var x = (i / threadCount) * size;
+      ctx.strokeStyle = (i % 2 === 0) ? 'rgba(120, 0, 0, 0.2)' : 'rgba(30, 0, 0, 0.2)';
+      ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, size); ctx.stroke();
+    }
+
+    var weftCount = 1000;
+    for (var i = 0; i < weftCount; i++) {
+      var y = (i / weftCount) * size;
+      ctx.strokeStyle = (i % 3 === 0) ? 'rgba(100, 0, 0, 0.15)' : 'rgba(20, 0, 0, 0.2)';
+      ctx.lineWidth = 0.4;
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(size, y); ctx.stroke();
+    }
+
+    for (var i = 0; i < 40000; i++) {
+      var x = Math.random() * size, y = Math.random() * size;
+      var r = Math.random() * 0.6;
+      var alpha = Math.random() * 0.15;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 100, 100,' + alpha + ')';
+      ctx.fill();
+    }
+
+    var imgData = ctx.getImageData(0,0,size,size);
+    var data = imgData.data;
+    for (var i = 0; i < data.length; i += 4) {
+      var noise = (Math.random() - 0.5) * 15;
+      data[i] += noise;
+      data[i+1] += noise;
+      data[i+2] += noise;
+    }
+    ctx.putImageData(imgData, 0, 0);
+
+    var tex = new THREE.CanvasTexture(c);
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(4, 6);
+    return tex;
+  }
+
+  var velvetTex = makeVelvetTexture();
+
+  var VERT = [
+  'varying vec3 vN;',
+  'varying vec3 vWP;',
+  'varying vec2 vUV;',
+  'varying vec3 vV;',
+  'void main(){',
+  '  vUV = uv;',
+  '  vec4 wp = modelMatrix * vec4(position, 1.0);',
+  '  vWP = wp.xyz;',
+  '  vN  = normalize(normalMatrix * normal);',
+  '  vV  = normalize(cameraPosition - wp.xyz);',
+  '  gl_Position = projectionMatrix * viewMatrix * wp;',
+  '}'
+  ].join('\n');
+
+  var FRAG = [
+  'uniform vec3       uSheen, uLP, uFP;',
+  'uniform sampler2D uTex;',
+  'varying vec3 vN, vWP, vV;',
+  'varying vec2 vUV;',
+
+  'float orenNayar(vec3 N,vec3 L,vec3 V){',
+  '  float r2=0.75;',
+  '  float A=1.0-0.5*r2/(r2+0.33);',
+  '  float B=0.45*r2/(r2+0.09);',
+  '  float NdL=max(dot(N,L),0.0);',
+  '  float NdV=max(dot(N,V),0.001);',
+  '  float tI=acos(clamp(NdL,-1.0,1.0));',
+  '  float tR=acos(clamp(NdV,-1.0,1.0));',
+  '  vec3 Lp=normalize(L-N*NdL);',
+  '  vec3 Vp=normalize(V-N*NdV);',
+  '  float cpd=max(dot(Lp,Vp),0.0);',
+  '  return NdL*(A+B*cpd*sin(max(tI,tR))*tan(min(tI,tR)+0.001));',
+  '}',
+
+  'float velvetSheen(vec3 N,vec3 V,vec3 L){',
+  '  vec3 H=normalize(V+L);',
+  '  float NdH=clamp(dot(N,H),0.0,1.0);',
+  '  float sinH=sqrt(max(0.0,1.0-NdH*NdH));',
+  '  float NdV=max(dot(N,V),0.001);',
+  '  float NdL=max(dot(N,L),0.001);',
+  '  return clamp(pow(sinH,8.0)/(4.0*NdV*NdL),0.0,2.5);',
+  '}',
+
+  'void main(){',
+  '  float pleatFreq = 18.0 * 2.0 * 3.14159;',
+  '  float pleatDeriv = -cos(vUV.x * pleatFreq) * 0.6;',
+  '  vec3 N = normalize(vec3(pleatDeriv, 0.0, 1.0));',
+  '  vec3 V = normalize(vV);',
+  '  vec3 L1 = normalize(uLP - vWP);',
+  '  vec3 L2 = normalize(uFP - vWP);',
+  '  vec3 texCol = texture2D(uTex, vUV).rgb;',
+
+  '  float d1 = orenNayar(N, L1, V);',
+  '  float d2 = orenNayar(N, L2, V) * 0.2;',
+  '  float sh  = velvetSheen(N, V, L1) * 1.1;',
+
+  '  float facing = max(dot(N, vec3(0.0,0.0,1.0)), 0.0);',
+  '  float ao = pow(facing, 0.25) * 0.55 + 0.45;',
+  '  float foldShadow = pow(facing, 1.6);',
+  '  texCol *= mix(0.12, 1.0, foldShadow);',
+
+  '  vec3 col = texCol * (d1 + d2) * ao + uSheen * sh * texCol * 2.0;',
+
+  '  float fadeBot  = smoothstep(0.0, 0.04, vUV.y);',
+  '  float fadeEdge = smoothstep(0.0,0.02,vUV.x)*smoothstep(0.0,0.02,1.0-vUV.x);',
+  '  col *= fadeBot * fadeEdge;',
+  '  col += texCol * 0.022;',
+  '  gl_FragColor = vec4(col, 1.0);',
+  '}'
+  ].join('\n');
+
+  function velvetMat() {
+    return new THREE.ShaderMaterial({
+      vertexShader: VERT, fragmentShader: FRAG,
+      uniforms: {
+        uTex:    { value: velvetTex },
+        uSheen:  { value: new THREE.Color(0.3, 0.0, 0.0) },
+        uLP:     { value: spotLight.position },
+        uFP:     { value: fillLight.position }
+      },
+      side: THREE.DoubleSide
+    });
+  }
+
+  var NX = isMobile ? 14 : 40;
+  var NY = isMobile ? 12 : 36;
+  var VX = NX+1, VY = NY+1;
+  var N_VERTS = VX * VY;
+  var CW = 5.5, CH = 6.2;
+  var OVERLAP = 0.0;
+
+  function vi(col, row) { return row * VX + col; }
+
+  function Cloth(isLeft) {
+    this.isLeft = isLeft;
+    this.pos  = new Float32Array(N_VERTS * 3);
+    this.prev = new Float32Array(N_VERTS * 3);
+
+    var Z_FRONT = this.isLeft ? 0.16 : -0.16;
+    var PLEAT_COUNT = isMobile ? 8 : 18;
+    var PLEAT_DEPTH = 0.15;
+
+    for (var row = 0; row < VY; row++) {
+      for (var col = 0; col < VX; col++) {
+        var i = vi(col, row);
+        var t = col / NX;
+        var x = isLeft ? -CW + t * CW + OVERLAP : t * CW - OVERLAP;
+        var y = CH/2 - (row / NY) * CH;
+        var rowFade = 1.0 - (row / NY) * 0.3;
+        var z = Z_FRONT + Math.sin(t * Math.PI * 2 * PLEAT_COUNT) * PLEAT_DEPTH * rowFade;
+        this.pos[i*3]   = x; this.pos[i*3+1] = y; this.pos[i*3+2] = z;
+        this.prev[i*3]  = x; this.prev[i*3+1] = y; this.prev[i*3+2] = z;
+      }
+    }
+
+    this.rl = {};
+    var p = this.pos;
+    var self = this;
+    function addRL(a, b) {
+      var dx=p[a*3]-p[b*3], dy=p[a*3+1]-p[b*3+1], dz=p[a*3+2]-p[b*3+2];
+      self.rl[a+'_'+b] = Math.sqrt(dx*dx+dy*dy+dz*dz);
+    }
+    for (var row = 0; row < VY; row++) {
+      for (var col = 0; col < VX; col++) {
+        if (col < NX)   addRL(vi(col,row),   vi(col+1,row));
+        if (row < NY)   addRL(vi(col,row),   vi(col,row+1));
+        if (col < NX && row < NY) {
+          addRL(vi(col,row),   vi(col+1,row+1));
+          addRL(vi(col+1,row), vi(col,row+1));
+        }
+        if (col < NX-1) addRL(vi(col,row),   vi(col+2,row));
+        if (row < NY-1) addRL(vi(col,row),   vi(col,row+2));
+      }
+    }
+
+    this.geo = new THREE.BufferGeometry();
+    var positions = new Float32Array(N_VERTS * 3);
+    var uvs       = new Float32Array(N_VERTS * 2);
+    for (var row = 0; row < VY; row++) {
+      for (var col = 0; col < VX; col++) {
+        var i = vi(col, row);
+        positions[i*3]   = this.pos[i*3];
+        positions[i*3+1] = this.pos[i*3+1];
+        positions[i*3+2] = this.pos[i*3+2];
+        uvs[i*2]   = col / NX;
+        uvs[i*2+1] = 1 - row / NY;
+      }
+    }
+
+    var indices = [];
+    for (var row = 0; row < NY; row++) {
+      for (var col = 0; col < NX; col++) {
+        var a = vi(col,   row),   b = vi(col+1, row);
+        var c = vi(col,   row+1), d = vi(col+1, row+1);
+        indices.push(a, b, d,  a, d, c);
+      }
+    }
+
+    this.geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    this.geo.setAttribute('uv',       new THREE.BufferAttribute(uvs, 2));
+    this.geo.setIndex(indices);
+    this.geo.computeVertexNormals();
+
+    this.mat  = velvetMat();
+    this.mesh = new THREE.Mesh(this.geo, this.mat);
+    this.mesh.castShadow = !isMobile;
+    this.mesh.receiveShadow = !isMobile;
+    this.mesh.renderOrder = isLeft ? 1 : 0;
+  }
+
+  Cloth.prototype.step = function(openProg, dt) {
+    var GRAVITY = -0.0008 * dt;
+    var DAMP    = 0.988;
+    var STIFF   = 0.82;
+    var ITERS   = isMobile ? 2 : 6;
+
+    var slide = this.isLeft ? -openProg * 3.2 : openProg * 3.2;
+
+    for (var i = 0; i < N_VERTS; i++) {
+      var row = Math.floor(i / VX);
+      if (row === 0) continue;
+      var px = this.pos[i*3], py = this.pos[i*3+1], pz = this.pos[i*3+2];
+      var vx = (px - this.prev[i*3])   * DAMP;
+      var vy = (py - this.prev[i*3+1]) * DAMP;
+      var vz = (pz - this.prev[i*3+2]) * DAMP;
+      this.prev[i*3]=px; this.prev[i*3+1]=py; this.prev[i*3+2]=pz;
+      this.pos[i*3]   = px + vx;
+      this.pos[i*3+1] = py + vy + GRAVITY;
+      this.pos[i*3+2] = pz + vz;
+    }
+
+    for (var iter = 0; iter < ITERS; iter++) {
+      for (var row = 0; row < VY; row++) {
+        for (var col = 0; col < VX; col++) {
+          var a = vi(col, row);
+          if (col < NX)   this._solveC(a, vi(col+1,row),   STIFF);
+          if (row < NY)   this._solveC(a, vi(col,row+1),   STIFF);
+          if (col < NX && row < NY) {
+            this._solveC(a, vi(col+1,row+1), STIFF * 0.9);
+            this._solveC(vi(col+1,row), vi(col,row+1), STIFF * 0.9);
+          }
+          if (col < NX-1) this._solveC(a, vi(col+2,row),   STIFF * 0.5);
+          if (row < NY-1) this._solveC(a, vi(col,row+2),   STIFF * 0.5);
+        }
+      }
+
+      var Z_FRONT = this.isLeft ? 0.16 : -0.16;
+      for (var col = 0; col < VX; col++) {
+        var pi = vi(col, 0);
+        var t  = col / NX;
+        var baseX = this.isLeft ? -CW + t * CW + OVERLAP + slide : t * CW - OVERLAP + slide;
+        var baseZ = Z_FRONT + Math.sin(t * Math.PI * 2 * (isMobile ? 8 : 18)) * 0.15;
+        this.pos[pi*3]   = baseX; this.pos[pi*3+1] = CH / 2; this.pos[pi*3+2] = baseZ;
+        this.prev[pi*3]  = baseX; this.prev[pi*3+1] = CH / 2; this.prev[pi*3+2] = baseZ;
+      }
+    }
+
+    var arr = this.geo.attributes.position.array;
+    for (var i = 0; i < N_VERTS * 3; i++) arr[i] = this.pos[i];
+    this.geo.attributes.position.needsUpdate = true;
+    this.geo.computeVertexNormals();
+  };
+
+  Cloth.prototype._solveC = function(a, b, stiff) {
+    var key = a+'_'+b;
+    var rest = this.rl[key] || this.rl[b+'_'+a];
+    if (!rest) return;
+    var dx = this.pos[b*3]  -this.pos[a*3];
+    var dy = this.pos[b*3+1]-this.pos[a*3+1];
+    var dz = this.pos[b*3+2]-this.pos[a*3+2];
+    var dist = Math.sqrt(dx*dx+dy*dy+dz*dz) || 0.0001;
+    var diff = (dist - rest) / dist * stiff * 0.5;
+    var pinnedA = Math.floor(a / VX) === 0;
+    var pinnedB = Math.floor(b / VX) === 0;
+    if (!pinnedA) { this.pos[a*3]+=dx*diff; this.pos[a*3+1]+=dy*diff; this.pos[a*3+2]+=dz*diff; }
+    if (!pinnedB) { this.pos[b*3]-=dx*diff; this.pos[b*3+1]-=dy*diff; this.pos[b*3+2]-=dz*diff; }
+  };
+
+  var modelGroup = new THREE.Group();
+  modelGroup.position.set(0, -0.2, 0.5);
+  modelGroup.visible = false;
+  scene.add(modelGroup);
+
+  var loader = new THREE.GLTFLoader();
+  loader.load('Untitled.glb', function(gltf) {
+    var model = gltf.scene;
+    var box = new THREE.Box3().setFromObject(model);
+    var size = new THREE.Vector3();
+    box.getSize(size);
+    var maxDim = Math.max(size.x, size.y, size.z);
+    var scale = 1.6 / maxDim;
+    model.scale.setScalar(scale);
+
+    var center = new THREE.Vector3();
+    box.getCenter(center);
+    model.position.sub(center.multiplyScalar(scale));
+
+    model.traverse(function(child) {
+      if (child.isMesh) {
+        child.castShadow = !isMobile;
+        child.receiveShadow = !isMobile;
+      }
+    });
+
+    while (modelGroup.children.length) modelGroup.remove(modelGroup.children[0]);
+    modelGroup.add(model);
+  }, undefined, function(err) {
+    console.warn('GLB henüz dizinde mevcut değil, placeholder bekleniyor.');
+  });
+
+  var clothL = new Cloth(true);
+  var clothR = new Cloth(false);
+  scene.add(clothL.mesh);
+  scene.add(clothR.mesh);
+
+  function makeFringe() {
+    var g = new THREE.PlaneGeometry(CW, 0.07, NX, 1);
+    var m = new THREE.MeshStandardMaterial({
+      color:0xd4a017, metalness:0.95, roughness:0.15,
+      side:THREE.DoubleSide, emissive:0x4a3200, emissiveIntensity:0.5
+    });
+    return new THREE.Mesh(g, m);
+  }
+  var fringeL = makeFringe(), fringeR = makeFringe();
+  scene.add(fringeL); scene.add(fringeR);
+
+  function updateFringe(fringe, cloth) {
+    var sx=0, sy=0, sz=0;
+    var bottomRow = NY;
+    for (var col = 0; col < VX; col++) {
+      var i = vi(col, bottomRow);
+      sx += cloth.pos[i*3];
+      sy += cloth.pos[i*3+1];
+      sz += cloth.pos[i*3+2];
+    }
+    fringe.position.set(sx/VX, sy/VX, sz/VX + 0.005);
+
+    var leftEdgeX = cloth.pos[vi(0, bottomRow)*3];
+    var rightEdgeX = cloth.pos[vi(NX, bottomRow)*3];
+    var currentWidth = Math.abs(rightEdgeX - leftEdgeX);
+    fringe.scale.x = currentWidth / CW;
+  }
+
+  var openProgress = 0;
+  var targetOpen = 0;
+  var drag = document.getElementById('drag');
+  var isDragging = false, dragStartX = 0, dragStartProg = 0;
+
+  setTimeout(function() {
+    targetOpen = 1;
+  }, 1200);
+
+  drag.addEventListener('pointerdown', function(e) {
+    isDragging = true; dragStartX = e.clientX; dragStartProg = targetOpen;
+    drag.setPointerCapture(e.pointerId);
+  });
+  drag.addEventListener('pointermove', function(e) {
+    if (!isDragging) return;
+    targetOpen = Math.max(0, Math.min(1, dragStartProg + (e.clientX - dragStartX) / (W * 0.38)));
+  });
+  drag.addEventListener('pointerup', function() {
+    isDragging = false;
+    targetOpen = targetOpen > 0.42 ? 1 : 0;
+  });
+  drag.addEventListener('pointercancel', function() { isDragging = false; });
+
+  var spotlightEl = document.getElementById('spotlight');
+  var floorEl     = document.getElementById('floor');
+
+  window.addEventListener('resize', function() {
+    W = window.innerWidth; H = window.innerHeight;
+    camera.aspect = W / H;
+    camera.updateProjectionMatrix();
+    renderer.setSize(W, H);
+  });
+
+  window.addEventListener('mousemove', function(e) {
+    if (openProgress > 0.5)
+      spotLight.position.x = (e.clientX / W - 0.5) * 1.5;
+  });
+
+  var dc = document.getElementById('dust-container');
+  var DUST_COUNT = isMobile ? 0 : 30;
+  for (var di = 0; di < DUST_COUNT; di++) {
+    (function() {
+      var p = document.createElement('div');
+      p.className = 'dust';
+      var s = Math.random()*3+1;
+      p.style.cssText = 'width:'+s+'px;height:'+s+'px;left:'+(Math.random()*100)+'%;top:110%';
+      dc.appendChild(p);
+      var dur = (Math.random()*10+10)*1000;
+      function loop() {
+        setTimeout(function() {
+          p.style.transition='none'; p.style.opacity='0';
+          p.style.top=(110+Math.random()*20)+'%';
+          p.style.left=(Math.random()*100)+'%';
+          setTimeout(function() {
+            p.style.transition='transform '+dur+'ms linear,opacity '+(dur*0.3)+'ms';
+            p.style.transform='translateY(-'+(H+200)+'px) translateX('+(Math.random()*80-40)+'px)';
+            p.style.opacity=(Math.random()*0.35+0.05).toString();
+            setTimeout(loop, dur+100);
+          }, 60);
+        }, Math.random()*12000);
+      }
+      loop();
+    })();
+  }
+
+  // Curtain simulation only; no logo/text overlay
+
+  var lastTime = performance.now();
+
+  function animate() {
+    if (!curtainActive) return;
+    requestAnimationFrame(animate);
+
+    var now = performance.now();
+    var dt  = Math.min((now - lastTime) / 16.67, 3);
+    lastTime = now;
+
+    var diff = targetOpen - openProgress;
+    var speed = diff > 0 ? 0.008 : 0.028;
+    openProgress += diff * speed;
+
+    clothL.step(openProgress, dt);
+    clothR.step(openProgress, dt);
+    updateFringe(fringeL, clothL);
+    updateFringe(fringeR, clothR);
+
+    spotLight.intensity = 1.0 + openProgress * 4;
+    fillLight.intensity = 0.5 + openProgress * 0.8;
+
+    var prog = Math.min(1, openProgress);
+
+    spotlightEl.style.opacity = 0.1 + prog * 1.8;
+    floorEl.style.opacity     = 0.5  + prog * 0.5;
+
+    if (prog > 0.7) {
+      modelGroup.visible = true;
+      modelGroup.rotation.y += 0.008;
+    } else {
+      modelGroup.visible = false;
+    }
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // Fade out the curtain loader and reveal the site
+  setTimeout(function() {
+    var overlay = document.getElementById('curtain-loader');
+    if (!overlay) return;
+    if (typeof gsap !== 'undefined') {
+      gsap.to(overlay, {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        onComplete: function() {
+          curtainActive = false;
+          overlay.remove();
+          document.body.classList.remove('curtain-loader-active');
+        }
+      });
+    } else {
+      overlay.style.transition = 'opacity 0.8s ease';
+      overlay.style.opacity = '0';
+      setTimeout(function() {
+        curtainActive = false;
+        overlay.remove();
+        document.body.classList.remove('curtain-loader-active');
+      }, 800);
+    }
+  }, 4200);
+})();
+</script>
+
+</body>
+</html>

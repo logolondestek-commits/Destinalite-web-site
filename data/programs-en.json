@@ -1,0 +1,31 @@
+{
+  "programs": [
+    {
+      "slug": "bale",
+      "title": "Ballet Education",
+      "category": "Dance",
+      "image": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1200&q=85",
+      "short": "Vaganova-based professional ballet education that prioritizes body awareness and discipline.",
+      "features": ["4 – 6 Age Preparation", "7 – 10 Age Basic Level", "Advanced Level and Pointe"],
+      "content": "<p>Ballet education is a fundamental art discipline where body awareness, balance, flexibility, and discipline are blended in an artistic language. At our academy, groups are formed for every age and level based on the Vaganova technique.</p><p>In children's groups, education begins with play and movement; in advancing age groups, it continues with classical ballet terminology, barre and centre exercises, steps, and combinations. In adult ballet classes, basic posture, stretching, and light combinations are highlighted.</p><p>Students gain stage experience through events prepared throughout the year. Thus, technical knowledge turns into stage practice.</p>"
+    },
+    {
+      "slug": "piyano",
+      "title": "Piano Class",
+      "category": "Music",
+      "image": "https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=1200&q=85",
+      "short": "One-to-one lessons in ear training, technique, and repertoire.",
+      "features": ["Early Age Music Education", "LCM Exam Preparation", "Adult Hobby Classes"],
+      "content": "<p>Piano education is a holistic discipline that develops musical literacy, ear training, and hand coordination simultaneously. At Destinalite, piano lessons are planned as one-to-one private lessons according to the student's age and level.</p><p>For young students, game-based note reading, rhythm studies, and basic repertoire; for adult students, a program progressing with classical and popular pieces. Special preparation programs are available for students who want to take LCM exams.</p><p>Regular practice tracking and parent feedback allow students' progress to be closely monitored.</p>"
+    },
+    {
+      "slug": "san-opera",
+      "title": "Voice & Opera",
+      "category": "Stage",
+      "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85",
+      "short": "Professional performance training with vocal health, diction, and stage posture.",
+      "features": ["Correct Breathing Techniques", "Voice Training (Singing)", "Opera and Stage Performance"],
+      "content": "<p>Voice and opera training is a discipline that teaches the correct and healthy use of the voice while also developing stage self-confidence. In our lessons, breathing techniques, vocal exercises, diction, and repertoire work are carried out together.</p><p>Students work on pieces suitable for their vocal color and technical capacity in one-to-one lessons. In group studies, preparations for choirs and stage performances are made.</p><p>Singing lessons are suitable for anyone with a passion for music; the opera journey progresses at a more advanced level toward professional goals.</p>"
+    }
+  ]
+}
