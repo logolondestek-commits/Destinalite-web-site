@@ -142,6 +142,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
+      pointer-events: none;
       background: linear-gradient(180deg, rgba(140,102,93,0.3) 0%, rgba(247,237,232,0.85) 100%);
     }
 
@@ -386,6 +387,12 @@
       .soft-frame { box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important; }
       #three-canvas, #dust-container, .cursor-glow, .dust { display: none !important; }
       .event-card:hover, .prog-card:hover, .event-card:hover .event-img { transform: none !important; }
+      .countdown-item { min-width: 58px; padding: 0.6rem 0.4rem; }
+      .countdown-number { font-size: 1.35rem; }
+      .countdown-label { font-size: 0.6rem; }
+      .exam-card-countdown .countdown-item { min-width: 48px; padding: 0.4rem 0.2rem; }
+      .exam-card-countdown .countdown-number { font-size: 1rem; }
+      .exam-card-countdown .countdown-label { font-size: 0.5rem; }
     }
   </style>
 </head>
@@ -437,6 +444,9 @@
     <button id="menuBtn" class="md:hidden text-2xl text-mocha">☰</button>
   </nav>
   <div id="mobileMenu" class="hidden md:hidden px-6 pb-5 space-y-3 text-base text-mocha font-sans border-t border-blush/30">
+  <div class="flex items-center justify-between px-6 py-4 border-b border-blush/20">
+    <span class="text-lg font-serif italic text-gold">Sınav Tarihleri</span>
+  </div>
   <div class="flex items-center gap-3 px-6 py-3 text-sm font-sans border-b border-blush/20">
     <span class="text-mocha/70">Dil:</span>
     <button class="lang-btn text-gold font-medium" data-lang="tr">TR</button>
@@ -444,6 +454,7 @@
     <button class="lang-btn text-mocha/70 hover:text-gold transition" data-lang="en">EN</button>
   </div>
     <a href="index.html"       class="block py-2 border-b border-blush/20">Anasayfa</a>
+    <a href="sinav-tarihleri.html" class="block py-2 border-b border-blush/20">Sınav Tarihleri</a>
     <a href="etkinlikler.html" class="block py-2 border-b border-blush/20">Etkinlikler</a>
     <a href="hakkimizda.html"  class="block py-2 border-b border-blush/20">Hakkımızda</a>
     <div class="border-b border-blush/20">

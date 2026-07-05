@@ -573,7 +573,7 @@
     }
     .bg-fixed, .hero { background-attachment: scroll !important; }
     .soft-frame { box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important; }
-    #three-canvas, #dust-container, .cursor-glow, .dust { display: none !important; }
+    #three-canvas, #dust-container, .cursor-glow, .dust, #drag { display: none !important; }
     .event-card:hover, .prog-card:hover, .event-card:hover .event-img { transform: none !important; }
   }
   </style>
@@ -658,6 +658,7 @@
     <button class="lang-btn text-mocha/70 hover:text-gold transition" data-lang="en">EN</button>
   </div>
     <a href="index.html"       class="block py-2 border-b border-blush/20">Anasayfa</a>
+    <a href="sinav-tarihleri.html" class="block py-2 border-b border-blush/20">Sınav Tarihleri</a>
     <a href="etkinlikler.html" class="block py-2 border-b border-blush/20">Etkinlikler</a>
     <a href="hakkimizda.html"  class="block py-2 border-b border-blush/20">Hakkımızda</a>
     <div class="border-b border-blush/20">
@@ -1460,7 +1461,11 @@
 
 <script>
 (function() {
-  if (sessionStorage.getItem('curtainShown')) {
+  var W = window.innerWidth, H = window.innerHeight;
+  var isMobile = W < 768;
+
+  // Curtain loader is heavy and blocks touch; skip it on mobile entirely
+  if (isMobile || sessionStorage.getItem('curtainShown')) {
     var overlay = document.getElementById('curtain-loader');
     if (overlay) overlay.remove();
     document.body.classList.remove('curtain-loader-active');
@@ -1471,12 +1476,31 @@
   document.body.classList.add('curtain-loader-active');
   var curtainActive = true;
 
-  var W = window.innerWidth, H = window.innerHeight;
-  var isMobile = W < 768;
-  if (isMobile) {
-    // Skip heavy WebGL scene on mobile
-    return;
-  }
+  // Fade out the curtain loader and reveal the site
+  setTimeout(function() {
+    var overlay = document.getElementById('curtain-loader');
+    if (!overlay) return;
+    if (typeof gsap !== 'undefined') {
+      gsap.to(overlay, {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        onComplete: function() {
+          curtainActive = false;
+          overlay.remove();
+          document.body.classList.remove('curtain-loader-active');
+        }
+      });
+    } else {
+      overlay.style.transition = 'opacity 0.8s ease';
+      overlay.style.opacity = '0';
+      setTimeout(function() {
+        curtainActive = false;
+        overlay.remove();
+        document.body.classList.remove('curtain-loader-active');
+      }, 800);
+    }
+  }, 4200);
 
   var renderer = new THREE.WebGLRenderer({
     canvas: document.getElementById('three-canvas'),
@@ -1979,32 +2003,6 @@
   }
 
   animate();
-
-  // Fade out the curtain loader and reveal the site
-  setTimeout(function() {
-    var overlay = document.getElementById('curtain-loader');
-    if (!overlay) return;
-    if (typeof gsap !== 'undefined') {
-      gsap.to(overlay, {
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-        onComplete: function() {
-          curtainActive = false;
-          overlay.remove();
-          document.body.classList.remove('curtain-loader-active');
-        }
-      });
-    } else {
-      overlay.style.transition = 'opacity 0.8s ease';
-      overlay.style.opacity = '0';
-      setTimeout(function() {
-        curtainActive = false;
-        overlay.remove();
-        document.body.classList.remove('curtain-loader-active');
-      }, 800);
-    }
-  }, 4200);
 })();
 </script>
 
