@@ -6,7 +6,54 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Destinalite | Sanat Akademisi</title>
+    <title>Destinalite | Sanat Akademisi | Bale, Piyano ve Sahne Sanatları Kursu</title>
+  <meta name="description" content="Destinalite Sanat Akademisi, Osmaniye'de bale, piyano, Sahne Sanatları ve Müzik Eğitimi veren profesyonel bir sanat okuludur. Çocuk ve yetişkin kursları için hemen randevu alın." />
+  <meta name="keywords" content="Bale Kursu, Piyano Dersi, Sahne Sanatları, Müzik Eğitimi, Sanat Akademisi, Osmaniye Sanat Okulu, Çocuk Kursu, Yetişkin Kursu, Dans Kursu, Oyunculuk Eğitimi, Tiyatro Kursu, Enstrüman Eğitimi, Bale Okulu, Piyano Okulu, Sanat Kursu, Destinalite" />
+  <meta name="author" content="Destinalite Sanat Akademisi" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://destinalite.com/" />
+  <meta property="og:title" content="Destinalite | Sanat Akademisi | Bale, Piyano ve Sahne Sanatları Kursu" />
+  <meta property="og:description" content="Destinalite Sanat Akademisi, Osmaniye'de bale, piyano, Sahne Sanatları ve Müzik Eğitimi veren profesyonel bir sanat okuludur. Çocuk ve yetişkin kursları için hemen randevu alın." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://destinalite.com/" />
+  <meta property="og:image" content="https://destinalite.com/assets/herobg.png" />
+  <meta property="og:image:alt" content="Destinalite Sanat Akademisi" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content="Destinalite Sanat Akademisi" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Destinalite | Sanat Akademisi | Bale, Piyano ve Sahne Sanatları Kursu" />
+  <meta name="twitter:description" content="Destinalite Sanat Akademisi, Osmaniye'de bale, piyano, Sahne Sanatları ve Müzik Eğitimi veren profesyonel bir sanat okuludur. Çocuk ve yetişkin kursları için hemen randevu alın." />
+  <meta name="twitter:image" content="https://destinalite.com/assets/herobg.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["MusicSchool", "DanceSchool"],
+    "name": "Destinalite Sanat Akademisi",
+    "description": "Osmaniye merkezli bale, piyano, Sahne Sanatları ve Müzik Eğitimi veren profesyonel Sanat Akademisi.",
+    "url": "https://destinalite.com/",
+    "logo": "https://destinalite.com/assets/destinalitelogo.png",
+    "image": "https://destinalite.com/assets/herobg.png",
+    "telephone": "+905326134623",
+    "email": "info@destinalite.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "26WJ+CMV Osmaniye Merkez",
+      "addressLocality": "Osmaniye",
+      "addressRegion": "Osmaniye",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.046111,
+      "longitude": 36.231667
+    },
+    "sameAs": [
+      "https://www.instagram.com/destinalite",
+      "https://www.facebook.com/destinalite"
+    ],
+    "priceRange": "$$"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -69,7 +116,7 @@
     }
 
     /* ── Navbar ── */
-    .navbar { transition: box-shadow .3s, background .3s; }
+    .navbar { transition: box-shadow .3s, background .3s, color .3s, border-color .3s; }
     .navbar.scrolled { box-shadow: 0 4px 40px rgba(110,77,69,.1); }
 
     /* ── Hero ── */
@@ -88,17 +135,11 @@
       inset: 0;
       z-index: 0;
     }
-    .hero-slide {
+    .hero-bg {
       position: absolute;
       inset: 0;
       background: center/cover no-repeat;
-      opacity: 0;
-      transform: scale(1.12);
-      transition: opacity 1.4s ease, transform 6s ease;
-    }
-    .hero-slide.active {
-      opacity: 1;
-      transform: scale(1);
+      transform: scale(1.05);
     }
 
     .hero-overlay {
@@ -228,28 +269,6 @@
       transform: translateY(-2px) scale(1.03);
     }
 
-    .hero-dots {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.75rem;
-    }
-    .hero-dots .slider-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.45);
-      cursor: pointer;
-      transition: background .3s, transform .3s, width .3s;
-      box-shadow: 0 0 6px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4);
-    }
-    .hero-dots .slider-dot.active {
-      background: #B08A4A;
-      transform: scale(1);
-      width: 24px;
-      border-radius: 999px;
-    }
-
     .slider-controls { display: none; }
 
     /* ── Scroll progress ── */
@@ -294,7 +313,7 @@
     .prog-card {
       background: rgba(253,248,245,.9);
       border: 1px solid rgba(176,138,74,.18);
-      border-radius: 2rem;
+      border-radius: 1.25rem;
       transition: transform .4s ease, box-shadow .4s ease;
     }
     .prog-card:hover {
@@ -305,10 +324,34 @@
     /* ── Program carousel ── */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* ── Countdown styling ── */
+    .countdown-item {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(176,138,74,0.2);
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      min-width: 70px;
+      text-align: center;
+    }
+    .countdown-number {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #8C665D;
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #B08A4A;
+      margin-top: 0.25rem;
+    }
+
     .program-card-wrapper {
       position: relative;
       flex-shrink: 0;
-      width: 75vw;
+      width: 82vw;
       scroll-snap-align: center;
     }
     @media (min-width: 768px) {
@@ -320,6 +363,15 @@
       transform-origin: top center;
       opacity: 0.75;
       transition: transform .4s ease, opacity .4s ease, box-shadow .4s ease;
+    }
+    @media (max-width: 767px) {
+      .program-card-wrapper .prog-card,
+      .program-card-wrapper.active .prog-card,
+      .program-card-wrapper.active .prog-card:hover {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        box-shadow: 0 8px 24px rgba(110,77,69,.1) !important;
+      }
     }
     .program-card-wrapper.active {
       z-index: 10;
@@ -334,10 +386,13 @@
     .cursor-grab { cursor: grab; }
     .cursor-grabbing { cursor: grabbing; }
 
+    /* ── Logo marquee ── */
+    .logo-track { width: max-content; will-change: transform; }
+
     /* ── Event card ── */
     .event-card {
       background: rgba(255,255,255,.85);
-      border-radius: 2rem;
+      border-radius: 1.25rem;
       overflow: hidden;
       box-shadow: 0 12px 32px rgba(110,77,69,.1);
       transition: transform .4s ease, box-shadow .4s ease;
@@ -477,8 +532,6 @@
       linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.55) 100%);
   }
   .dark .soft-frame { box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
-  .dark .slider-dot { background: rgba(212,196,188,0.3); }
-  .dark .slider-dot.active { background: #B08A4A; }
   .dark input, .dark textarea, .dark select {
     background: rgba(45,35,30,0.8) !important;
     color: #e8d8cd !important;
@@ -509,6 +562,19 @@
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
+  }
+
+  /* ── Mobile performance optimizations ── */
+  @media (max-width: 767px) {
+    .reveal, .reveal-header, .reveal-header > *, .reveal-stagger > * {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .bg-fixed, .hero { background-attachment: scroll !important; }
+    .soft-frame { box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important; }
+    #three-canvas, #dust-container, .cursor-glow, .dust { display: none !important; }
+    .event-card:hover, .prog-card:hover, .event-card:hover .event-img { transform: none !important; }
   }
   </style>
   <script>
@@ -542,7 +608,7 @@
 <div class="cursor-glow hidden md:block"></div>
 
 <!-- ══ NAVBAR ══ -->
-<header class="navbar fixed top-0 left-0 w-full z-50 glass">
+<header class="navbar fixed top-0 left-0 w-full z-50 bg-cream border-b border-blush/20">
   <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="index.html" id="logoLink" class="magnetic flex items-center">
       <span class="gold-text text-2xl md:text-3xl italic font-semibold tracking-wide leading-none">Destinalite</span>
@@ -557,16 +623,17 @@
           İçerikler
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-lg border border-blush/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 flex flex-col z-50">
+        <div class="absolute top-full left-0 mt-2 w-52 bg-white rounded-lg shadow-lg border border-blush/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 flex flex-col z-50">
           <a href="egitimler.html" class="block px-4 py-2 hover:bg-cream hover:text-gold transition">Eğitimler</a>
           <a href="egitim-personeli.html" class="block px-4 py-2 hover:bg-cream hover:text-gold transition">Eğitim Personeli</a>
           <a href="dersprogrami.html" class="block px-4 py-2 hover:bg-cream hover:text-gold transition">Ders Programı</a>
         </div>
       </div>
       <a href="blog.html"         class="hover:text-gold transition">Blog</a>
+      <a href="sinav-tarihleri.html" class="hover:text-gold transition">Sınav Tarihleri</a>
       <a href="iletisim.html"    class="hover:text-gold transition">İletişim</a>
-      <a href="tel:05555555555" class="magnetic px-5 py-2 rounded-full bg-rose text-white text-sm hover:bg-mocha transition shadow-md">
-        ☎ 0555 555 5555
+      <a href="iletisim.html" class="magnetic px-5 py-2 rounded-full bg-rose text-white text-sm hover:bg-mocha transition shadow-md">
+        Randevu Al
       </a>
     <div class="hidden md:flex items-center gap-2 text-sm font-sans border-l border-blush/40 pl-4 ml-2">
       <button class="lang-btn text-gold font-medium" data-lang="tr">TR</button>
@@ -613,9 +680,7 @@
 <!-- ══ HERO ══ -->
 <section id="anasayfa" class="hero">
   <div class="hero-slider">
-    <div class="hero-slide active" style="background-image:url('assets/herobg.png')"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1600&q=80')"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=1600&q=80')"></div>
+    <div class="hero-bg" style="background-image:url('assets/herobg.png')"></div>
   </div>
   <div class="hero-overlay"></div>
 
@@ -629,19 +694,12 @@
     </h2>
 
     <p class="hero-desc text-base md:text-lg text-white/90 max-w-sm mx-auto leading-relaxed font-sans font-normal mb-6">
-      Bale ve müzik eğitimi ile disiplin, estetik ve özgüven kazandırıyoruz.
+      Bale ve Müzik Eğitimi ile disiplin, estetik ve özgüven kazandırıyoruz.
     </p>
 
     <div class="hero-btns flex flex-wrap gap-3 justify-center">
       <a href="#randevu" class="hero-btn hero-btn-secondary magnetic">Ücretsiz Deneme Dersi</a>
-      <a href="vokal-analiz.html" class="hero-btn hero-btn-accent magnetic">Vokal & Frekans Analizi</a>
       <a href="#egitimler" class="hero-btn hero-btn-primary magnetic">Programları İncele →</a>
-    </div>
-
-    <div class="hero-dots">
-      <span class="slider-dot active" data-slide="0"></span>
-      <span class="slider-dot" data-slide="1"></span>
-      <span class="slider-dot" data-slide="2"></span>
     </div>
   </div>
 </section>
@@ -658,7 +716,7 @@
       <div class="event-card">
         <div class="relative h-56 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80" alt="Açılış Gecesi" class="event-img w-full h-full object-cover">
-          <div class="absolute top-4 left-4 glass rounded-xl px-4 py-2 text-center min-w-[4.5rem]">
+          <div class="absolute top-4 left-4 glass rounded-lg px-4 py-2 text-center min-w-[4.5rem]">
             <p class="text-2xl font-bold text-mocha leading-none">24</p>
             <p class="text-xs uppercase tracking-wider text-gold mt-1">Eki</p>
           </div>
@@ -670,13 +728,14 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-6-4.35-6-9.75A6 6 0 0 1 12 5a6 6 0 0 1 6 6.25C18 16.65 12 21 12 21z"/><circle cx="12" cy="11" r="2"/></svg>
             <span>Destinalite Stüdyo</span>
           </div>
+          <a href="etkinlik-acilis-gecesi.html" class="inline-block mt-4 px-5 py-2 rounded-full border border-gold/40 text-mocha text-sm font-sans hover:bg-rose hover:text-white hover:border-rose transition">Detaylı Bilgi</a>
         </div>
       </div>
 
       <div class="event-card">
         <div class="relative h-56 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=600&q=80" alt="Piyano Resitali" class="event-img w-full h-full object-cover">
-          <div class="absolute top-4 left-4 glass rounded-xl px-4 py-2 text-center min-w-[4.5rem]">
+          <div class="absolute top-4 left-4 glass rounded-lg px-4 py-2 text-center min-w-[4.5rem]">
             <p class="text-2xl font-bold text-mocha leading-none">08</p>
             <p class="text-xs uppercase tracking-wider text-gold mt-1">Kas</p>
           </div>
@@ -688,13 +747,14 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-6-4.35-6-9.75A6 6 0 0 1 12 5a6 6 0 0 1 6 6.25C18 16.65 12 21 12 21z"/><circle cx="12" cy="11" r="2"/></svg>
             <span>Konser Salonu</span>
           </div>
+          <a href="etkinlik-piyano-resitali.html" class="inline-block mt-4 px-5 py-2 rounded-full border border-gold/40 text-mocha text-sm font-sans hover:bg-rose hover:text-white hover:border-rose transition">Detaylı Bilgi</a>
         </div>
       </div>
 
       <div class="event-card">
         <div class="relative h-56 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=600&q=80" alt="Bale Atölyesi" class="event-img w-full h-full object-cover">
-          <div class="absolute top-4 left-4 glass rounded-xl px-4 py-2 text-center min-w-[4.5rem]">
+          <div class="absolute top-4 left-4 glass rounded-lg px-4 py-2 text-center min-w-[4.5rem]">
             <p class="text-2xl font-bold text-mocha leading-none">15</p>
             <p class="text-xs uppercase tracking-wider text-gold mt-1">Kas</p>
           </div>
@@ -706,6 +766,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-6-4.35-6-9.75A6 6 0 0 1 12 5a6 6 0 0 1 6 6.25C18 16.65 12 21 12 21z"/><circle cx="12" cy="11" r="2"/></svg>
             <span>Destinalite Stüdyo</span>
           </div>
+          <a href="etkinlik-bale-atolyesi.html" class="inline-block mt-4 px-5 py-2 rounded-full border border-gold/40 text-mocha text-sm font-sans hover:bg-rose hover:text-white hover:border-rose transition">Detaylı Bilgi</a>
         </div>
       </div>
 
@@ -737,17 +798,15 @@
       <div class="absolute -inset-6 bg-blush/30 rounded-full blur-3xl pointer-events-none"></div>
       <img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&w=900&q=85"
            alt="Destinalite stüdyo"
-           class="relative rounded-[2.5rem] soft-frame w-full object-cover" style="max-height:480px;object-position:center" />
+           class="relative rounded-[1rem] soft-frame w-full object-cover" style="max-height:480px;object-position:center" />
       <!-- Floating badge -->
-      <div class="absolute -bottom-4 -left-4 glass rounded-2xl px-5 py-3 shadow-lg">
+      <div class="absolute -bottom-4 -left-4 glass rounded-xl px-5 py-3 shadow-lg">
         <p class="text-2xl italic gold-text font-bold">Destinalite</p>
         <p class="text-xs text-mocha font-sans tracking-wider uppercase mt-0.5">Sanat Akademisi</p>
       </div>
     </div>
   </div>
 </section>
-
-<!-- marquee kaldırıldı -->
 
 <!-- ══ EĞİTİM PROGRAMLARI ══ -->
 <section id="egitimler" class="relative py-24 bg-soft overflow-hidden">
@@ -758,21 +817,35 @@
     </div>
   </div>
 
-  <div id="programCarousel" class="flex items-stretch overflow-x-auto gap-8 snap-x snap-mandatory py-10 px-[12.5vw] md:px-[calc(50vw-14rem)] no-scrollbar scroll-smooth cursor-grab select-none">
-    <!-- Programlar dinamik olarak yükleniyor -->
-  </div>
+  <div class="relative">
+    <div id="programCarousel" class="flex items-stretch overflow-x-auto gap-4 md:gap-8 snap-x snap-mandatory py-6 md:py-10 px-[9vw] md:px-[calc(50vw-14rem)] no-scrollbar scroll-smooth">
+      <!-- Programlar dinamik olarak yükleniyor -->
+    </div>
 
-  <!-- Slider nav buttons -->
-  <button id="prevProgram" class="hidden md:flex absolute top-1/2 -translate-y-1/2 left-4 lg:left-8 z-20 items-center justify-center w-12 h-12 rounded-full bg-white/90 border border-gold/40 text-mocha hover:bg-rose hover:text-white hover:border-rose transition shadow-lg" aria-label="Önceki program">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-    </svg>
-  </button>
-  <button id="nextProgram" class="hidden md:flex absolute top-1/2 -translate-y-1/2 right-4 lg:right-8 z-20 items-center justify-center w-12 h-12 rounded-full bg-white/90 border border-gold/40 text-mocha hover:bg-rose hover:text-white hover:border-rose transition shadow-lg" aria-label="Sonraki program">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-    </svg>
-  </button>
+    <!-- Mobile nav arrows -->
+    <button id="prevProgramMobile" class="md:hidden absolute top-1/2 -translate-y-1/2 left-2 z-20 w-10 h-10 rounded-full bg-white/90 border border-gold/40 text-mocha flex items-center justify-center shadow-lg" aria-label="Önceki program">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button id="nextProgramMobile" class="md:hidden absolute top-1/2 -translate-y-1/2 right-2 z-20 w-10 h-10 rounded-full bg-white/90 border border-gold/40 text-mocha flex items-center justify-center shadow-lg" aria-label="Sonraki program">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <!-- Desktop nav buttons -->
+    <button id="prevProgram" class="hidden md:flex absolute top-1/2 -translate-y-1/2 left-4 lg:left-8 z-20 items-center justify-center w-12 h-12 rounded-full bg-white/90 border border-gold/40 text-mocha hover:bg-rose hover:text-white hover:border-rose transition shadow-lg" aria-label="Önceki program">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button id="nextProgram" class="hidden md:flex absolute top-1/2 -translate-y-1/2 right-4 lg:right-8 z-20 items-center justify-center w-12 h-12 rounded-full bg-white/90 border border-gold/40 text-mocha hover:bg-rose hover:text-white hover:border-rose transition shadow-lg" aria-label="Sonraki program">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
 
   <div class="max-w-7xl mx-auto px-6 text-center mt-8 reveal">
     <a href="egitimler.html" class="magnetic inline-block px-8 py-3.5 rounded-full border border-gold/40 text-mocha text-sm font-sans hover:bg-rose hover:text-white hover:border-rose transition">
@@ -786,57 +859,31 @@
     .then(r => r.json())
     .then(data => {
       const container = document.getElementById('programCarousel');
+      const isMobile = window.innerWidth < 768;
       const cardHtml = data.programs.map(p => `
         <div class="program-card-wrapper">
-          <div class="prog-card p-8 text-center h-full flex flex-col">
-            <img src="${p.image}" alt="${p.title}" class="w-full h-48 object-cover rounded-2xl mb-6 soft-frame">
-            <h3 class="text-3xl italic text-mocha mb-3">${p.title}</h3>
-            <ul class="text-mocha/70 font-sans font-light text-sm space-y-1 mb-4 flex-grow">
+          <div class="prog-card p-6 md:p-8 text-center h-full flex flex-col">
+            <img src="${p.image}" alt="${p.title}" class="w-full h-40 md:h-48 object-cover rounded-xl mb-4 md:mb-6 soft-frame">
+            <h3 class="text-2xl md:text-3xl italic text-mocha mb-2 md:mb-3">${p.title}</h3>
+            <ul class="text-mocha/70 font-sans font-light text-xs md:text-sm space-y-1 mb-3 md:mb-4 flex-grow">
               ${p.features.map(f => `<li>${f}</li>`).join('')}
             </ul>
-            <p class="text-sm text-mocha/60 font-sans font-light mb-6">${p.short}</p>
-            <a href="egitim-detay.html?slug=${p.slug}" class="inline-block mt-auto px-6 py-2.5 rounded-full border border-gold/40 text-mocha text-sm font-sans hover:bg-rose hover:text-white hover:border-rose transition">
+            <p class="text-xs md:text-sm text-mocha/60 font-sans font-light mb-4 md:mb-6">${p.short}</p>
+            <a href="egitim-detay.html?slug=${p.slug}" class="inline-block mt-auto px-5 md:px-6 py-2 md:py-2.5 rounded-full border border-gold/40 text-mocha text-xs md:text-sm font-sans hover:bg-rose hover:text-white hover:border-rose transition">
               Detaylı Bilgi
             </a>
           </div>
         </div>
       `).join('');
-      container.innerHTML = cardHtml + cardHtml + cardHtml;
+      container.innerHTML = isMobile ? cardHtml : cardHtml + cardHtml + cardHtml;
       if (window.applyLanguage) window.applyLanguage();
 
       const wrappers = Array.from(container.querySelectorAll('.program-card-wrapper'));
       const N = data.programs.length;
-      const setWidth = wrappers[N].offsetLeft - wrappers[0].offsetLeft;
+      const setWidth = isMobile ? 0 : wrappers[N].offsetLeft - wrappers[0].offsetLeft;
       let currentIndex = 0;
       let isAutoScrolling = false;
       let autoplayTimer, resumeTimer;
-
-      function scrollToCard(index, duration = 0.6) {
-        if (!wrappers[index]) return;
-        const target = wrappers[index].offsetLeft + wrappers[index].offsetWidth / 2 - container.clientWidth / 2;
-        currentIndex = index;
-        isAutoScrolling = true;
-        gsap.killTweensOf(container);
-        container.style.scrollSnapType = 'none';
-        gsap.to(container, {
-          scrollLeft: target,
-          duration: duration,
-          ease: 'power3.inOut',
-          onComplete: () => {
-            // Infinite loop: silently jump back to the middle clone set
-            if (currentIndex >= 2 * N) {
-              container.scrollLeft -= setWidth;
-              currentIndex -= N;
-            } else if (currentIndex < N) {
-              container.scrollLeft += setWidth;
-              currentIndex += N;
-            }
-            container.style.scrollSnapType = '';
-            isAutoScrolling = false;
-            updateActiveProgram();
-          }
-        });
-      }
 
       function updateActiveProgram() {
         const center = container.scrollLeft + container.clientWidth / 2;
@@ -854,20 +901,60 @@
         currentIndex = activeIndex;
       }
 
+      function scrollToCard(index, duration = 0.6) {
+        if (!wrappers[index]) return;
+        const target = wrappers[index].offsetLeft + wrappers[index].offsetWidth / 2 - container.clientWidth / 2;
+        currentIndex = index;
+        if (isMobile) {
+          container.style.scrollSnapType = 'none';
+          const restoreSnap = () => {
+            container.style.scrollSnapType = '';
+            updateActiveProgram();
+            container.removeEventListener('scrollend', restoreSnap);
+            clearTimeout(fallback);
+          };
+          container.addEventListener('scrollend', restoreSnap);
+          const fallback = setTimeout(restoreSnap, 600);
+          container.scrollTo({ left: target, behavior: 'smooth' });
+          return;
+        }
+        isAutoScrolling = true;
+        gsap.killTweensOf(container);
+        container.style.scrollSnapType = 'none';
+        gsap.to(container, {
+          scrollLeft: target,
+          duration: duration,
+          ease: 'power3.inOut',
+          onComplete: () => {
+            if (currentIndex >= 2 * N) {
+              container.scrollLeft -= setWidth;
+              currentIndex -= N;
+            } else if (currentIndex < N) {
+              container.scrollLeft += setWidth;
+              currentIndex += N;
+            }
+            container.style.scrollSnapType = '';
+            isAutoScrolling = false;
+            updateActiveProgram();
+          }
+        });
+      }
+
       function startAutoplay() {
+        if (isMobile) return;
         stopAutoplay();
         autoplayTimer = setInterval(() => {
           const next = currentIndex + 1;
           scrollToCard(next, 0.8);
-        }, 4000);
+        }, 3000);
       }
       function stopAutoplay() {
         clearInterval(autoplayTimer);
         clearTimeout(resumeTimer);
       }
 
-      // Initial position (middle clone set)
-      const startIndex = N + Math.min(1, N - 1);
+      // Initial position
+      const startIndex = isMobile ? 0 : N + Math.min(1, N - 1);
       if (wrappers[startIndex]) {
         requestAnimationFrame(() => {
           scrollToCard(startIndex, 0.6);
@@ -875,13 +962,11 @@
         });
       }
 
-      // Auto scroll + pause on interaction
+      // Scroll listener
       container.addEventListener('scroll', () => {
-        if (isDragging) return; // drag loop handles everything
         updateActiveProgram();
-        if (!isAutoScrolling) {
+        if (!isAutoScrolling && !isMobile) {
           stopAutoplay();
-          // Infinite loop correction for manual scroll
           if (currentIndex >= 2 * N) {
             isAutoScrolling = true;
             container.style.scrollSnapType = 'none';
@@ -895,22 +980,17 @@
             currentIndex += N;
             setTimeout(() => { isAutoScrolling = false; container.style.scrollSnapType = ''; }, 50);
           }
-          resumeTimer = setTimeout(startAutoplay, 4000);
+          resumeTimer = setTimeout(startAutoplay, 3000);
         }
       });
 
-      container.addEventListener('mouseenter', stopAutoplay);
-      container.addEventListener('mouseleave', () => {
-        clearTimeout(resumeTimer);
-        resumeTimer = setTimeout(startAutoplay, 4000);
-      });
       container.addEventListener('touchstart', stopAutoplay, { passive: true });
       container.addEventListener('touchend', () => {
         clearTimeout(resumeTimer);
-        resumeTimer = setTimeout(startAutoplay, 4000);
+        resumeTimer = setTimeout(startAutoplay, 3000);
       });
 
-      // Prev / Next buttons
+      // Desktop nav buttons
       const prevBtn = document.getElementById('prevProgram');
       const nextBtn = document.getElementById('nextProgram');
       if (prevBtn) {
@@ -918,7 +998,7 @@
           stopAutoplay();
           const idx = currentIndex - 1;
           scrollToCard(idx, 0.6);
-          resumeTimer = setTimeout(startAutoplay, 4000);
+          resumeTimer = setTimeout(startAutoplay, 3000);
         });
       }
       if (nextBtn) {
@@ -926,112 +1006,47 @@
           stopAutoplay();
           const idx = currentIndex + 1;
           scrollToCard(idx, 0.6);
-          resumeTimer = setTimeout(startAutoplay, 4000);
+          resumeTimer = setTimeout(startAutoplay, 3000);
         });
       }
 
-      // Mouse drag to scroll with smooth lerp
-      let isDown = false, isDragging = false, startX, scrollLeft, targetScroll, dragVelocity = 0, lastX, dragRafId;
-      function smoothDrag() {
-        if (!isDragging) return;
-        // Lerp toward the target for buttery motion
-        container.scrollLeft += (targetScroll - container.scrollLeft) * 0.25;
-
-        // Keep active card in sync
-        updateActiveProgram();
-
-        // Infinite loop correction while dragging
-        if (currentIndex >= 2 * N) {
-          const shift = setWidth;
-          container.scrollLeft -= shift;
-          targetScroll -= shift;
-          scrollLeft -= shift;
-          currentIndex -= N;
-        } else if (currentIndex < N) {
-          const shift = setWidth;
-          container.scrollLeft += shift;
-          targetScroll += shift;
-          scrollLeft += shift;
-          currentIndex += N;
-        }
-        wrappers.forEach((w, i) => w.classList.toggle('active', i === currentIndex));
-
-        dragRafId = requestAnimationFrame(smoothDrag);
-      }
-
-      container.addEventListener('mousedown', e => {
-        isDown = true;
-        isDragging = true;
-        dragVelocity = 0;
-        lastX = e.pageX;
-        stopAutoplay();
-        gsap.killTweensOf(container);
-        container.style.scrollSnapType = 'none';
-        container.classList.add('cursor-grabbing');
-        container.classList.remove('cursor-grab');
-        startX = e.pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-        targetScroll = container.scrollLeft;
-        dragRafId = requestAnimationFrame(smoothDrag);
-      });
-      container.addEventListener('mouseleave', () => {
-        if (!isDown) return;
-        isDown = false;
-        isDragging = false;
-        cancelAnimationFrame(dragRafId);
-        container.classList.remove('cursor-grabbing');
-        container.classList.add('cursor-grab');
-        applyInertiaAndSnap();
-      });
-      container.addEventListener('mouseup', () => {
-        if (!isDown) return;
-        isDown = false;
-        isDragging = false;
-        cancelAnimationFrame(dragRafId);
-        container.classList.remove('cursor-grabbing');
-        container.classList.add('cursor-grab');
-        applyInertiaAndSnap();
-      });
-      container.addEventListener('mousemove', e => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        targetScroll = scrollLeft - walk;
-        dragVelocity = e.pageX - lastX;
-        lastX = e.pageX;
-      });
-
-      function applyInertiaAndSnap() {
-        const projected = container.scrollLeft - dragVelocity * 8;
-        let nearestIndex = 0;
-        let minDist = Infinity;
-        wrappers.forEach((w, i) => {
-          const target = w.offsetLeft + w.offsetWidth / 2 - container.clientWidth / 2;
-          const dist = Math.abs(projected - target);
-          if (dist < minDist) {
-            minDist = dist;
-            nearestIndex = i;
-          }
+      // Mobile nav arrows
+      const prevMobile = document.getElementById('prevProgramMobile');
+      const nextMobile = document.getElementById('nextProgramMobile');
+      if (prevMobile) {
+        prevMobile.addEventListener('click', () => {
+          const idx = Math.max(0, currentIndex - 1);
+          scrollToCard(idx, 0.3);
         });
-        const target = wrappers[nearestIndex].offsetLeft + wrappers[nearestIndex].offsetWidth / 2 - container.clientWidth / 2;
-        const distance = target - container.scrollLeft;
-        const duration = Math.min(0.8, Math.max(0.3, Math.abs(distance) / 1000));
-        scrollToCard(nearestIndex, duration);
-        clearTimeout(resumeTimer);
-        resumeTimer = setTimeout(startAutoplay, 4000);
       }
+      if (nextMobile) {
+        nextMobile.addEventListener('click', () => {
+          const idx = Math.min(wrappers.length - 1, currentIndex + 1);
+          scrollToCard(idx, 0.3);
+        });
+      }
+
+      // Click card to center
+      wrappers.forEach((w, i) => {
+        w.style.cursor = 'pointer';
+        w.addEventListener('click', e => {
+          if (e.target.closest('a')) return;
+          stopAutoplay();
+          scrollToCard(i, 0.6);
+          resumeTimer = setTimeout(startAutoplay, 3000);
+        });
+      });
 
       startAutoplay();
 
       // Scroll-triggered entrance for program cards
       gsap.from('.program-card-wrapper', {
         opacity: 0,
-        y: 50,
-        scale: 0.92,
-        rotate: 2,
+        y: isMobile ? 30 : 50,
+        scale: isMobile ? 0.95 : 0.92,
+        rotate: isMobile ? 0 : 2,
         stagger: 0.1,
-        duration: 0.8,
+        duration: isMobile ? 0.5 : 0.8,
         ease: 'power3.out',
         scrollTrigger: { trigger: '#programCarousel', start: 'top 80%' }
       });
@@ -1044,6 +1059,30 @@
     });
 </script>
 
+<!-- ══ REFERANSLARIMIZ ══ -->
+<section class="py-16 bg-soft overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 text-center mb-10">
+    <p class="text-gold tracking-[.4em] uppercase text-sm font-sans mb-3">İş Birlikleri</p>
+    <h2 class="text-3xl md:text-5xl italic text-mocha">Referanslarımız</h2>
+  </div>
+  <div class="relative w-full overflow-hidden">
+    <div class="logo-track flex items-center gap-12">
+      <img src="assets/references/ref1.svg" alt="Referans 1" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref2.svg" alt="Referans 2" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref3.svg" alt="Referans 3" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref4.svg" alt="Referans 4" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref5.svg" alt="Referans 5" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref6.svg" alt="Referans 6" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref1.svg" alt="Referans 1" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref2.svg" alt="Referans 2" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref3.svg" alt="Referans 3" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref4.svg" alt="Referans 4" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref5.svg" alt="Referans 5" class="h-16 w-auto flex-shrink-0 object-contain">
+      <img src="assets/references/ref6.svg" alt="Referans 6" class="h-16 w-auto flex-shrink-0 object-contain">
+    </div>
+  </div>
+</section>
+
 <!-- ══ RANDEVU ══ -->
 <section id="randevu" class="relative py-24 bg-soft overflow-hidden">
   <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(232,207,198,.5),transparent 70%)"></div>
@@ -1054,39 +1093,94 @@
   </div>
 
   <div class="relative max-w-4xl mx-auto px-6 reveal">
-    <form class="grid md:grid-cols-2 gap-4 text-left glass rounded-[2.5rem] p-8 shadow-xl" novalidate>
-      <input type="text"   placeholder="Ad Soyad"       class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm" />
-      <input type="tel"    placeholder="Telefon"         class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm" />
-      <input type="number" placeholder="Çocuğun Yaşı" min="3" max="18" class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm" />
-      <select class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm text-mocha">
+    <form onsubmit="sendToWhatsApp(event)" class="grid md:grid-cols-2 gap-3 md:gap-4 text-left glass rounded-[1rem] p-6 md:p-8 shadow-xl" novalidate>
+      <input type="text"   name="ad"       placeholder="Ad Soyad"       class="p-3 md:p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm w-full" required />
+      <input type="tel"    name="telefon"  placeholder="Telefon"         class="p-3 md:p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm w-full" required />
+      <input type="number" name="yas"      placeholder="Çocuğun Yaşı" min="3" max="18" class="p-3 md:p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm w-full" required />
+      <select name="program" class="p-3 md:p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm text-mocha w-full" required>
         <option value="">İlgilenilen Program</option>
         <option>Bale</option>
         <option>Piyano</option>
         <option>Sahne Sanatları</option>
       </select>
-      <textarea rows="4" placeholder="Mesajınız" class="md:col-span-2 p-4 rounded-[1.5rem] bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm resize-none"></textarea>
-      <button type="submit" class="magnetic md:col-span-2 mx-auto px-12 py-4 rounded-full bg-rose text-white font-sans text-sm hover:bg-mocha transition shadow-lg">
-        Randevu Talebi Gönder
+      <textarea name="mesaj" rows="4" placeholder="Mesajınız" class="md:col-span-2 p-3 md:p-4 rounded-[1rem] bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm resize-none w-full"></textarea>
+      <button type="submit" class="magnetic md:col-span-2 w-full md:w-auto md:mx-auto px-6 md:px-12 py-4 rounded-full bg-rose text-white font-sans text-sm hover:bg-mocha transition shadow-lg">
+        WhatsApp'tan Randevu Talebi Gönder
       </button>
     </form>
   </div>
 </section>
 
 <!-- ══ FOOTER ══ -->
-<footer id="iletisim" class="py-16 bg-cream text-center border-t border-blush/30">
-  <h2 class="text-5xl italic gold-text mb-3">Destinalite</h2>
-  <p class="text-mocha/70 font-sans font-light text-sm mb-4">Adres: Osmaniye, Türkiye &nbsp;|&nbsp; Tel: 0555 555 5555</p>
-  <div class="flex justify-center gap-6 text-sm font-sans">
-    <a href="#" class="text-gold hover:text-mocha transition">Instagram</a>
-    <span class="text-blush">·</span>
-    <a href="#" class="text-gold hover:text-mocha transition">WhatsApp</a>
-    <span class="text-blush">·</span>
-    <a href="mailto:info@destinalite.com" class="text-gold hover:text-mocha transition">E-posta</a>
+<footer id="iletisim" class="py-16 bg-cream border-t border-blush/30">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
+    <div>
+      <h2 class="text-3xl italic gold-text mb-3">Destinalite</h2>
+      <p class="text-sm text-mocha/70 font-sans font-light">
+        Osmaniye merkezli profesyonel Sanat Akademisi. Bale, piyano, Sahne Sanatları ve Müzik Eğitimi ile çocuklara ve yetişkinlere sanatı sevdiriyoruz.
+      </p>
+    </div>
+    <div>
+      <h4 class="text-sm font-sans font-semibold text-mocha uppercase tracking-wider mb-4">Eğitimler</h4>
+      <ul class="text-sm font-sans font-light text-mocha/70 space-y-2">
+        <li><a href="egitimler.html" class="hover:text-gold transition">Bale Kursu</a></li>
+        <li><a href="egitimler.html" class="hover:text-gold transition">Piyano Dersi</a></li>
+        <li><a href="egitimler.html" class="hover:text-gold transition">Sahne Sanatları</a></li>
+        <li><a href="egitimler.html" class="hover:text-gold transition">Müzik Eğitimi</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-sm font-sans font-semibold text-mocha uppercase tracking-wider mb-4">Hızlı Bağlantılar</h4>
+      <ul class="text-sm font-sans font-light text-mocha/70 space-y-2">
+        <li><a href="index.html" class="hover:text-gold transition">Ana Sayfa</a></li>
+        <li><a href="hakkimizda.html" class="hover:text-gold transition">Hakkımızda</a></li>
+        <li><a href="etkinlikler.html" class="hover:text-gold transition">Etkinlikler</a></li>
+        <li><a href="blog.html" class="hover:text-gold transition">Blog</a></li>
+        <li><a href="iletisim.html" class="hover:text-gold transition">İletişim</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-sm font-sans font-semibold text-mocha uppercase tracking-wider mb-4">İletişim</h4>
+      <ul class="text-sm font-sans font-light text-mocha/70 space-y-2">
+        <li>26WJ+CMV Osmaniye Merkez, Osmaniye</li>
+        <li><a href="tel:+905326134623" class="hover:text-gold transition">+90 532 613 46 23</a></li>
+        <li><a href="mailto:info@destinalite.com" class="hover:text-gold transition">info@destinalite.com</a></li>
+        <li><a href="https://wa.me/905326134623" target="_blank" rel="noopener" class="hover:text-gold transition">WhatsApp</a></li>
+      </ul>
+    </div>
   </div>
-  <p class="mt-6 text-xs text-mocha/40 font-sans">© 2025 Destinalite Sanat Akademisi</p>
+  <div class="max-w-7xl mx-auto px-6 mt-10 pt-8 border-t border-blush/30">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-sans text-mocha/60">
+      <p>© 2025 Destinalite Sanat Akademisi. Tüm hakları saklıdır.</p>
+      <div class="flex gap-4">
+        <a href="https://www.instagram.com/destinalite" target="_blank" rel="noopener" class="hover:text-gold transition">Instagram</a>
+        <a href="https://www.facebook.com/destinalite" target="_blank" rel="noopener" class="hover:text-gold transition">Facebook</a>
+        <a href="https://wa.me/905326134623" target="_blank" rel="noopener" class="hover:text-gold transition">WhatsApp</a>
+      </div>
+    </div>
+    <div class="mt-6 text-xs text-mocha/40 font-sans max-w-4xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Bale Kursu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Piyano Dersi</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Sahne Sanatları</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Müzik Eğitimi</a>
+        <a href="hakkimizda.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Sanat Akademisi</a>
+        <a href="iletisim.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Osmaniye Sanat Okulu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Çocuk Kursu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Yetişkin Kursu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Dans Kursu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Oyunculuk Eğitimi</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Tiyatro Kursu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Enstrüman Eğitimi</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Bale Okulu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Piyano Okulu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Sanat Kursu</a>
+      </div>
+    </div>
+  </div>
 </footer>
 <!-- ══ SABİT BUTONLAR ══ -->
-<a href="https://wa.me/905555555555" target="_blank" rel="noopener" aria-label="WhatsApp" class="hidden md:flex fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+<a href="https://wa.me/905326134623" target="_blank" rel="noopener" aria-label="WhatsApp" class="hidden md:flex fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
   </svg>
@@ -1110,7 +1204,7 @@
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
       </svg>
     </button>
-    <a href="https://wa.me/905555555555" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110">
+    <a href="https://wa.me/905326134623" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
       </svg>
@@ -1128,27 +1222,45 @@
 <script>
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-  // Lenis smooth scroll
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-    wheelMultiplier: 1,
-    touchMultiplier: 2,
-    infinite: false,
-  });
+  const isMobile = window.innerWidth < 768;
 
-  lenis.on('scroll', ScrollTrigger.update);
+  // Lenis smooth scroll (disabled on mobile for performance)
+  let lenis = null;
+  if (!isMobile) {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+  }
 
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-  gsap.ticker.lagSmoothing(0);
+  function smoothScrollTo(target, options = {}) {
+    if (lenis) {
+      lenis.scrollTo(target, options);
+      return;
+    }
+    const offset = options.offset || 0;
+    const top = typeof target === 'number' ? target + offset : target.offsetTop + offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
 
   // Navbar scroll
-  window.addEventListener('scroll', () => {
-    document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 40);
-  });
+  const navbar = document.querySelector('.navbar');
+  function updateNavbar() {
+    if (!navbar) return;
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }
+  updateNavbar();
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+  window.addEventListener('resize', updateNavbar, { passive: true });
 
   // Mobile menu
   document.getElementById('menuBtn').addEventListener('click', () => {
@@ -1177,7 +1289,7 @@
       const t = document.querySelector(link.getAttribute('href'));
       if (!t) return;
       e.preventDefault();
-      lenis.scrollTo(t, { offset: -80, duration: 1.2 });
+      smoothScrollTo(t, { offset: -80, duration: 1.2 });
       document.getElementById('mobileMenu').classList.add('hidden');
     });
   });
@@ -1188,7 +1300,7 @@
     if (hash) {
       const t = document.querySelector(hash);
       if (t) {
-        lenis.scrollTo(t, { offset: -80, duration: 1.2 });
+        smoothScrollTo(t, { offset: -80, duration: 1.2 });
       }
     }
   });
@@ -1198,7 +1310,7 @@
     const isHome = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '';
     if (isHome && window.scrollY > 0) {
       e.preventDefault();
-      lenis.scrollTo(0, { duration: 1.2 });
+      smoothScrollTo(0, { duration: 1.2 });
     }
   });
 
@@ -1211,57 +1323,40 @@
       scrollTopBtn.classList.toggle('pointer-events-none', window.scrollY <= 300);
     });
     scrollTopBtn.addEventListener('click', () => {
-      lenis.scrollTo(0, { duration: 1.2 });
+      smoothScrollTo(0, { duration: 1.2 });
     });
   }
 
   // Hero entrance
   const heroCard = document.querySelector('.hero-card');
-  if (heroCard) {
+  if (heroCard && !isMobile) {
     gsap.timeline({ delay: .2 })
       .from(heroCard,     { opacity: 0, y: 50, duration: 1, ease: 'power3.out' })
       .from('.hero-logo',  { opacity: 0, y: 30,  duration: 1, ease: 'power4.out' }, '-=.6')
       .from('.hero-divider', { opacity: 0, scaleX: 0, duration: .7 }, '-=.6')
       .from('.hero-sub',    { opacity: 0, y: 20,  duration: .8 }, '-=.5')
       .from('.hero-desc',   { opacity: 0, y: 20,  duration: .7 }, '-=.4')
-      .from('.hero-btn',    { opacity: 0, y: 20,  stagger: .12, duration: .7 }, '-=.4')
-      .from('.hero-dots',   { opacity: 0, y: 10,  duration: .5 }, '-=.3');
+      .from('.hero-btn',    { opacity: 0, y: 20,  stagger: .12, duration: .7 }, '-=.4');
   }
 
   // Hero parallax
-  if (document.querySelector('.hero-slider')) {
+  if (!isMobile && document.querySelector('.hero-slider')) {
     gsap.to('.hero-slider', {
       yPercent: 20,
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
     });
   }
 
-  // Hero slider
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots   = document.querySelectorAll('.slider-dot');
-  if (slides.length && dots.length) {
-    let currentSlide = 0, slideTimer;
-    function goToSlide(i) {
-      slides[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.remove('active');
-      currentSlide = (i + slides.length) % slides.length;
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
-    }
-    function nextSlide() { goToSlide(currentSlide + 1); }
-    function resetSlider() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5000); }
-    dots.forEach((d, i) => d.addEventListener('click', () => { goToSlide(i); resetSlider(); }));
-    slideTimer = setInterval(nextSlide, 5000);
-  }
-
   // Reveal
-  gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 60 },
-      { opacity: 1, y: 0, duration: 1.1, ease: 'power4.out',
-        scrollTrigger: { trigger: el, start: 'top 85%' } }
-    );
-  });
+  if (!isMobile) {
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 60 },
+        { opacity: 1, y: 0, duration: 1.1, ease: 'power4.out',
+          scrollTrigger: { trigger: el, start: 'top 85%' } }
+      );
+    });
+  }
 
   // Scroll progress bar
   gsap.to('#scroll-progress', {
@@ -1271,34 +1366,22 @@
   });
 
   // Staggered section headers
-  gsap.utils.toArray('.reveal-header').forEach(header => {
-    gsap.from(header.children, {
-      opacity: 0,
-      y: 40,
-      scale: 0.98,
-      stagger: 0.12,
-      duration: 0.9,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: header, start: 'top 85%' }
-    });
-  });
-
-  // Staggered event cards
-  const eventGrid = document.querySelector('.reveal-stagger');
-  if (eventGrid) {
-    gsap.from('.reveal-stagger .event-card', {
-      opacity: 0,
-      y: 60,
-      scale: 0.95,
-      stagger: 0.12,
-      duration: 0.8,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: eventGrid, start: 'top 80%' }
+  if (!isMobile) {
+    gsap.utils.toArray('.reveal-header').forEach(header => {
+      gsap.from(header.children, {
+        opacity: 0,
+        y: 40,
+        scale: 0.98,
+        stagger: 0.12,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: header, start: 'top 85%' }
+      });
     });
   }
 
   // Neden section parallax and checklist
-  if (document.querySelector('#neden')) {
+  if (!isMobile && document.querySelector('#neden')) {
     gsap.to('#neden img', {
       yPercent: -12,
       scrollTrigger: { trigger: '#neden', start: 'top bottom', end: 'bottom top', scrub: true }
@@ -1314,7 +1397,8 @@
   }
 
   // Story panels
-  gsap.utils.toArray('.story-panel').forEach((panel, i) => {
+  if (!isMobile) {
+    gsap.utils.toArray('.story-panel').forEach((panel, i) => {
     gsap.to(panel, { opacity: 1, scale: 1, duration: .5,
       scrollTrigger: { trigger: '.section-pin', start: `${i*25}% top`, end: `${(i+1)*25}% top`, scrub: true }
     });
@@ -1322,12 +1406,15 @@
       scrollTrigger: { trigger: '.section-pin', start: `${(i+.7)*25}% top`, end: `${(i+1)*25}% top`, scrub: true }
     });
   });
+  }
 
   // Cursor glow
   const glow = document.querySelector('.cursor-glow');
-  window.addEventListener('mousemove', e => {
-    gsap.to(glow, { x: e.clientX, y: e.clientY, duration: .4, ease: 'power2.out' });
-  });
+  if (glow && !isMobile) {
+    window.addEventListener('mousemove', e => {
+      gsap.to(glow, { x: e.clientX, y: e.clientY, duration: .4, ease: 'power2.out' });
+    });
+  }
 
   // Magnetic
   document.querySelectorAll('.magnetic').forEach(el => {
@@ -1351,6 +1438,24 @@
     setTimeout(() => p.remove(), 14000);
   }
   setInterval(petal, 500);
+
+  function sendToWhatsApp(event) {
+    event.preventDefault();
+    const form = event.target;
+    const ad = form.querySelector('[name="ad"]').value.trim();
+    const telefon = form.querySelector('[name="telefon"]').value.trim();
+    const yas = form.querySelector('[name="yas"]').value;
+    const program = form.querySelector('[name="program"]').value;
+    const mesaj = form.querySelector('[name="mesaj"]').value.trim();
+    const businessNumber = '905326134623';
+    const waMessage = '*Destinalite Randevu Talebi*\n\n' +
+      '*Ad Soyad:* ' + (ad || '-') + '\n' +
+      '*Telefon:* ' + (telefon || '-') + '\n' +
+      '*Çocuğun Yaşı:* ' + (yas || '-') + '\n' +
+      '*İlgilenilen Program:* ' + (program || '-') + '\n' +
+      '*Mesaj:* ' + (mesaj || '-');
+    window.open('https://wa.me/' + businessNumber + '?text=' + encodeURIComponent(waMessage), '_blank');
+  }
 </script>
 
 <script>
@@ -1368,6 +1473,10 @@
 
   var W = window.innerWidth, H = window.innerHeight;
   var isMobile = W < 768;
+  if (isMobile) {
+    // Skip heavy WebGL scene on mobile
+    return;
+  }
 
   var renderer = new THREE.WebGLRenderer({
     canvas: document.getElementById('three-canvas'),
@@ -1897,6 +2006,41 @@
     }
   }, 4200);
 })();
+</script>
+
+<script>
+  (function() {
+    const track = document.querySelector('.logo-track');
+    if (!track) return;
+
+    // Clone items until the track is at least twice the container width
+    (function fillTrack() {
+      const container = track.parentElement;
+      const containerWidth = container.clientWidth;
+      let trackWidth = track.scrollWidth;
+      while (trackWidth < containerWidth * 2) {
+        Array.from(track.children).forEach(function(item) {
+          track.appendChild(item.cloneNode(true));
+        });
+        trackWidth = track.scrollWidth;
+      }
+    })();
+
+    let x = 0;
+    const speed = 0.4;
+    function step() {
+      x -= speed;
+      const first = track.children[0];
+      const firstWidth = first.offsetWidth + parseFloat(getComputedStyle(track).gap || 0);
+      if (Math.abs(x) >= firstWidth) {
+        x += firstWidth;
+        track.appendChild(first);
+      }
+      track.style.transform = 'translateX(' + x + 'px)';
+      requestAnimationFrame(step);
+    }
+    step();
+  })();
 </script>
 
 </body>

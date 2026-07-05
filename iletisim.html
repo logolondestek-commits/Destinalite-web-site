@@ -6,7 +6,54 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>İletişim | Destinalite</title>
+    <title>İletişim | Destinalite Sanat Akademisi | Osmaniye</title>
+  <meta name="description" content="Destinalite Sanat Akademisi iletişim bilgileri. Osmaniye'de bale, piyano, Sahne Sanatları kursları için bize ulaşın. WhatsApp randevu." />
+  <meta name="keywords" content="Bale Kursu, Piyano Dersi, Sahne Sanatları, Müzik Eğitimi, Sanat Akademisi, Osmaniye Sanat Okulu, Çocuk Kursu, Yetişkin Kursu, Dans Kursu, Oyunculuk Eğitimi, Tiyatro Kursu, Enstrüman Eğitimi, Bale Okulu, Piyano Okulu, Sanat Kursu, Destinalite" />
+  <meta name="author" content="Destinalite Sanat Akademisi" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://destinalite.com/iletisim.html" />
+  <meta property="og:title" content="İletişim | Destinalite Sanat Akademisi | Osmaniye" />
+  <meta property="og:description" content="Destinalite Sanat Akademisi iletişim bilgileri. Osmaniye'de bale, piyano, Sahne Sanatları kursları için bize ulaşın. WhatsApp randevu." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://destinalite.com/iletisim.html" />
+  <meta property="og:image" content="https://destinalite.com/assets/herobg.png" />
+  <meta property="og:image:alt" content="Destinalite Sanat Akademisi" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content="Destinalite Sanat Akademisi" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="İletişim | Destinalite Sanat Akademisi | Osmaniye" />
+  <meta name="twitter:description" content="Destinalite Sanat Akademisi iletişim bilgileri. Osmaniye'de bale, piyano, Sahne Sanatları kursları için bize ulaşın. WhatsApp randevu." />
+  <meta name="twitter:image" content="https://destinalite.com/assets/herobg.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["MusicSchool", "DanceSchool"],
+    "name": "Destinalite Sanat Akademisi",
+    "description": "Osmaniye merkezli bale, piyano, Sahne Sanatları ve Müzik Eğitimi veren profesyonel Sanat Akademisi.",
+    "url": "https://destinalite.com/",
+    "logo": "https://destinalite.com/assets/destinalitelogo.png",
+    "image": "https://destinalite.com/assets/herobg.png",
+    "telephone": "+905326134623",
+    "email": "info@destinalite.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "26WJ+CMV Osmaniye Merkez",
+      "addressLocality": "Osmaniye",
+      "addressRegion": "Osmaniye",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.046111,
+      "longitude": 36.231667
+    },
+    "sameAs": [
+      "https://www.instagram.com/destinalite",
+      "https://www.facebook.com/destinalite"
+    ],
+    "priceRange": "$$"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -148,7 +195,7 @@
     .prog-card {
       background: rgba(253,248,245,.9);
       border: 1px solid rgba(176,138,74,.18);
-      border-radius: 2rem;
+      border-radius: 1.25rem;
       transition: transform .4s ease, box-shadow .4s ease;
     }
     .prog-card:hover {
@@ -159,7 +206,7 @@
     /* ── Event card ── */
     .event-card {
       background: rgba(255,255,255,.85);
-      border-radius: 2rem;
+      border-radius: 1.25rem;
       overflow: hidden;
       box-shadow: 0 12px 32px rgba(110,77,69,.1);
       transition: transform .4s ease, box-shadow .4s ease;
@@ -292,6 +339,19 @@
     pointer-events: auto;
     transform: translateY(0);
   }
+
+  /* ── Mobile performance optimizations ── */
+  @media (max-width: 767px) {
+    .reveal, .reveal-header, .reveal-header > *, .reveal-stagger > * {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .bg-fixed, .hero { background-attachment: scroll !important; }
+    .soft-frame { box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important; }
+    #three-canvas, #dust-container, .cursor-glow, .dust { display: none !important; }
+    .event-card:hover, .prog-card:hover, .event-card:hover .event-img { transform: none !important; }
+  }
   </style>
   <script>
     (function() {
@@ -306,7 +366,7 @@
 <div class="cursor-glow hidden md:block"></div>
 
 <!-- ══ NAVBAR ══ -->
-<header class="navbar fixed top-0 left-0 w-full z-50 glass">
+<header class="navbar fixed top-0 left-0 w-full z-50 bg-cream border-b border-blush/20">
   <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="index.html" id="logoLink" class="magnetic flex items-center">
       <span class="gold-text text-2xl md:text-3xl italic font-semibold tracking-wide leading-none">Destinalite</span>
@@ -321,17 +381,17 @@
           İçerikler
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-lg border border-blush/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 flex flex-col z-50">
+        <div class="absolute top-full left-0 mt-2 w-52 bg-white rounded-lg shadow-lg border border-blush/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 flex flex-col z-50">
           <a href="egitimler.html" class="block px-4 py-2 hover:bg-cream hover:text-gold transition">Eğitimler</a>
           <a href="egitim-personeli.html" class="block px-4 py-2 hover:bg-cream hover:text-gold transition">Eğitim Personeli</a>
           <a href="dersprogrami.html" class="block px-4 py-2 hover:bg-cream hover:text-gold transition">Ders Programı</a>
-          <a href="vokal-analiz.html" class="block px-4 py-2 hover:bg-cream hover:text-gold transition">Vokal & Frekans Analizi</a>
         </div>
       </div>
       <a href="blog.html"         class="hover:text-gold transition">Blog</a>
+      <a href="sinav-tarihleri.html" class="hover:text-gold transition">Sınav Tarihleri</a>
       <a href="iletisim.html"    class="hover:text-gold transition">İletişim</a>
-      <a href="tel:05555555555" class="magnetic px-5 py-2 rounded-full bg-rose text-white text-sm hover:bg-mocha transition shadow-md">
-        ☎ 0555 555 5555
+      <a href="iletisim.html" class="magnetic px-5 py-2 rounded-full bg-rose text-white text-sm hover:bg-mocha transition shadow-md">
+        Randevu Al
       </a>
     <div class="hidden md:flex items-center gap-2 text-sm font-sans border-l border-blush/40 pl-4 ml-2">
       <button class="lang-btn text-gold font-medium" data-lang="tr">TR</button>
@@ -367,7 +427,6 @@
         <a href="egitimler.html" class="block py-1 hover:text-gold transition">Eğitimler</a>
         <a href="egitim-personeli.html" class="block py-1 hover:text-gold transition">Eğitim Personeli</a>
         <a href="dersprogrami.html" class="block py-1 hover:text-gold transition">Ders Programı</a>
-        <a href="vokal-analiz.html" class="block py-1 hover:text-gold transition">Vokal & Frekans Analizi</a>
       </div>
     </div>
     <a href="blog.html"         class="block py-2 border-b border-blush/20">Blog</a>
@@ -392,11 +451,11 @@
     <div class="grid md:grid-cols-3 gap-8 mb-16">
       <div class="prog-card reveal p-8 text-center">
         <p class="text-gold text-sm uppercase tracking-wider font-sans mb-2">Adres</p>
-        <p class="text-mocha font-sans">Osmaniye, Türkiye</p>
+        <p class="text-mocha font-sans">26WJ+CMV Osmaniye Merkez, Osmaniye</p>
       </div>
       <div class="prog-card reveal p-8 text-center">
         <p class="text-gold text-sm uppercase tracking-wider font-sans mb-2">Telefon</p>
-        <a href="tel:05555555555" class="text-mocha font-sans hover:text-gold transition">0555 555 5555</a>
+        <a href="tel:+905326134623" class="text-mocha font-sans hover:text-gold transition">+90 532 613 46 23</a>
       </div>
       <div class="prog-card reveal p-8 text-center">
         <p class="text-gold text-sm uppercase tracking-wider font-sans mb-2">E-posta</p>
@@ -409,39 +468,128 @@
       <h2 class="text-4xl md:text-6xl italic gold-text mb-3">Deneme Dersine Davetlisiniz</h2>
       <p class="text-mocha/70 font-sans font-light mb-10">Sanat yolculuğunuz için ilk adımı atın.</p>
 
-      <form class="grid md:grid-cols-2 gap-4 text-left glass rounded-[2.5rem] p-8 shadow-xl" novalidate>
-        <input type="text"   placeholder="Ad Soyad"       class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm" />
-        <input type="tel"    placeholder="Telefon"         class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm" />
-        <input type="number" placeholder="Çocuğun Yaşı" min="3" max="18" class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm" />
-        <select class="p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm text-mocha">
+      <form onsubmit="sendToWhatsApp(event)" class="grid md:grid-cols-2 gap-3 md:gap-4 text-left glass rounded-[1rem] p-6 md:p-8 shadow-xl" novalidate>
+        <input type="text"   name="ad"       placeholder="Ad Soyad"       class="p-3 md:p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm w-full" required />
+        <input type="tel"    name="telefon"  placeholder="Telefon"         class="p-3 md:p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm w-full" required />
+        <input type="number" name="yas"      placeholder="Çocuğun Yaşı" min="3" max="18" class="p-3 md:p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm w-full" required />
+        <select name="program" class="p-3 md:p-4 rounded-full bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm text-mocha w-full" required>
           <option value="">İlgilenilen Program</option>
           <option>Bale</option>
           <option>Piyano</option>
           <option>Sahne Sanatları</option>
         </select>
-        <textarea rows="4" placeholder="Mesajınız" class="md:col-span-2 p-4 rounded-[1.5rem] bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm resize-none"></textarea>
-        <button type="submit" class="magnetic md:col-span-2 mx-auto px-12 py-4 rounded-full bg-rose text-white font-sans text-sm hover:bg-mocha transition shadow-lg">
-          Randevu Talebi Gönder
+        <textarea name="mesaj" rows="4" placeholder="Mesajınız" class="md:col-span-2 p-3 md:p-4 rounded-[1rem] bg-white/80 border border-blush outline-none focus:ring-2 focus:ring-gold font-sans text-sm resize-none w-full"></textarea>
+        <button type="submit" class="magnetic md:col-span-2 w-full md:w-auto md:mx-auto px-6 md:px-12 py-4 rounded-full bg-rose text-white font-sans text-sm hover:bg-mocha transition shadow-lg">
+          WhatsApp'tan Randevu Talebi Gönder
         </button>
       </form>
+
+      <script>
+        function sendToWhatsApp(event) {
+          event.preventDefault();
+          const form = event.target;
+          const ad = form.querySelector('[name="ad"]').value.trim();
+          const telefon = form.querySelector('[name="telefon"]').value.trim();
+          const yas = form.querySelector('[name="yas"]').value;
+          const program = form.querySelector('[name="program"]').value;
+          const mesaj = form.querySelector('[name="mesaj"]').value.trim();
+          const businessNumber = '905326134623';
+          const waMessage = '*Destinalite Randevu Talebi*\n\n' +
+            '*Ad Soyad:* ' + (ad || '-') + '\n' +
+            '*Telefon:* ' + (telefon || '-') + '\n' +
+            '*Çocuğun Yaşı:* ' + (yas || '-') + '\n' +
+            '*İlgilenilen Program:* ' + (program || '-') + '\n' +
+            '*Mesaj:* ' + (mesaj || '-');
+          window.open('https://wa.me/' + businessNumber + '?text=' + encodeURIComponent(waMessage), '_blank');
+        }
+      </script>
+
+      <div class="relative w-full h-80 md:h-[28rem] mt-16 rounded-[1rem] overflow-hidden shadow-xl soft-frame">
+        <iframe
+          src="https://maps.google.com/maps?q=26WJ%2BCMV%20Osmaniye%20Merkez%2C%20Osmaniye&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Destinalite Konum"
+          class="absolute inset-0 w-full h-full"
+        ></iframe>
+      </div>
     </div>
   </div>
 </section>
 <!-- ══ FOOTER ══ -->
-<footer id="iletisim" class="py-16 bg-cream text-center border-t border-blush/30">
-  <h2 class="text-5xl italic gold-text mb-3">Destinalite</h2>
-  <p class="text-mocha/70 font-sans font-light text-sm mb-4">Adres: Osmaniye, Türkiye &nbsp;|&nbsp; Tel: 0555 555 5555</p>
-  <div class="flex justify-center gap-6 text-sm font-sans">
-    <a href="#" class="text-gold hover:text-mocha transition">Instagram</a>
-    <span class="text-blush">·</span>
-    <a href="#" class="text-gold hover:text-mocha transition">WhatsApp</a>
-    <span class="text-blush">·</span>
-    <a href="mailto:info@destinalite.com" class="text-gold hover:text-mocha transition">E-posta</a>
+<footer id="iletisim" class="py-16 bg-cream border-t border-blush/30">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
+    <div>
+      <h2 class="text-3xl italic gold-text mb-3">Destinalite</h2>
+      <p class="text-sm text-mocha/70 font-sans font-light">
+        Osmaniye merkezli profesyonel Sanat Akademisi. Bale, piyano, Sahne Sanatları ve Müzik Eğitimi ile çocuklara ve yetişkinlere sanatı sevdiriyoruz.
+      </p>
+    </div>
+    <div>
+      <h4 class="text-sm font-sans font-semibold text-mocha uppercase tracking-wider mb-4">Eğitimler</h4>
+      <ul class="text-sm font-sans font-light text-mocha/70 space-y-2">
+        <li><a href="egitimler.html" class="hover:text-gold transition">Bale Kursu</a></li>
+        <li><a href="egitimler.html" class="hover:text-gold transition">Piyano Dersi</a></li>
+        <li><a href="egitimler.html" class="hover:text-gold transition">Sahne Sanatları</a></li>
+        <li><a href="egitimler.html" class="hover:text-gold transition">Müzik Eğitimi</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-sm font-sans font-semibold text-mocha uppercase tracking-wider mb-4">Hızlı Bağlantılar</h4>
+      <ul class="text-sm font-sans font-light text-mocha/70 space-y-2">
+        <li><a href="index.html" class="hover:text-gold transition">Ana Sayfa</a></li>
+        <li><a href="hakkimizda.html" class="hover:text-gold transition">Hakkımızda</a></li>
+        <li><a href="etkinlikler.html" class="hover:text-gold transition">Etkinlikler</a></li>
+        <li><a href="blog.html" class="hover:text-gold transition">Blog</a></li>
+        <li><a href="iletisim.html" class="hover:text-gold transition">İletişim</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-sm font-sans font-semibold text-mocha uppercase tracking-wider mb-4">İletişim</h4>
+      <ul class="text-sm font-sans font-light text-mocha/70 space-y-2">
+        <li>26WJ+CMV Osmaniye Merkez, Osmaniye</li>
+        <li><a href="tel:+905326134623" class="hover:text-gold transition">+90 532 613 46 23</a></li>
+        <li><a href="mailto:info@destinalite.com" class="hover:text-gold transition">info@destinalite.com</a></li>
+        <li><a href="https://wa.me/905326134623" target="_blank" rel="noopener" class="hover:text-gold transition">WhatsApp</a></li>
+      </ul>
+    </div>
   </div>
-  <p class="mt-6 text-xs text-mocha/40 font-sans">© 2025 Destinalite Sanat Akademisi</p>
+  <div class="max-w-7xl mx-auto px-6 mt-10 pt-8 border-t border-blush/30">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-sans text-mocha/60">
+      <p>© 2025 Destinalite Sanat Akademisi. Tüm hakları saklıdır.</p>
+      <div class="flex gap-4">
+        <a href="https://www.instagram.com/destinalite" target="_blank" rel="noopener" class="hover:text-gold transition">Instagram</a>
+        <a href="https://www.facebook.com/destinalite" target="_blank" rel="noopener" class="hover:text-gold transition">Facebook</a>
+        <a href="https://wa.me/905326134623" target="_blank" rel="noopener" class="hover:text-gold transition">WhatsApp</a>
+      </div>
+    </div>
+    <div class="mt-6 text-xs text-mocha/40 font-sans max-w-4xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Bale Kursu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Piyano Dersi</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Sahne Sanatları</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Müzik Eğitimi</a>
+        <a href="hakkimizda.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Sanat Akademisi</a>
+        <a href="iletisim.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Osmaniye Sanat Okulu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Çocuk Kursu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Yetişkin Kursu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Dans Kursu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Oyunculuk Eğitimi</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Tiyatro Kursu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Enstrüman Eğitimi</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Bale Okulu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Piyano Okulu</a>
+        <a href="egitimler.html" class="px-2 py-1.5 rounded-lg border border-blush/20 hover:text-gold hover:border-gold/40 transition">Sanat Kursu</a>
+      </div>
+    </div>
+  </div>
 </footer>
 <!-- ══ SABİT BUTONLAR ══ -->
-<a href="https://wa.me/905555555555" target="_blank" rel="noopener" aria-label="WhatsApp" class="hidden md:flex fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+<a href="https://wa.me/905326134623" target="_blank" rel="noopener" aria-label="WhatsApp" class="hidden md:flex fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
   </svg>
@@ -465,7 +613,7 @@
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
       </svg>
     </button>
-    <a href="https://wa.me/905555555555" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110">
+    <a href="https://wa.me/905326134623" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
       </svg>
@@ -483,22 +631,35 @@
 <script>
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-  // Lenis smooth scroll
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-    wheelMultiplier: 1,
-    touchMultiplier: 2,
-    infinite: false,
-  });
+  const isMobile = window.innerWidth < 768;
 
-  lenis.on('scroll', ScrollTrigger.update);
+  // Lenis smooth scroll (disabled on mobile for performance)
+  let lenis = null;
+  if (!isMobile) {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+  }
 
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-  gsap.ticker.lagSmoothing(0);
+  function smoothScrollTo(target, options = {}) {
+    if (lenis) {
+      lenis.scrollTo(target, options);
+      return;
+    }
+    const offset = options.offset || 0;
+    const top = typeof target === 'number' ? target + offset : target.offsetTop + offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
 
   // Navbar scroll
   window.addEventListener('scroll', () => {
@@ -532,7 +693,7 @@
       const t = document.querySelector(link.getAttribute('href'));
       if (!t) return;
       e.preventDefault();
-      lenis.scrollTo(t, { offset: -80, duration: 1.2 });
+      smoothScrollTo(t, { offset: -80, duration: 1.2 });
       document.getElementById('mobileMenu').classList.add('hidden');
     });
   });
@@ -543,7 +704,7 @@
     if (hash) {
       const t = document.querySelector(hash);
       if (t) {
-        lenis.scrollTo(t, { offset: -80, duration: 1.2 });
+        smoothScrollTo(t, { offset: -80, duration: 1.2 });
       }
     }
   });
@@ -553,7 +714,7 @@
     const isHome = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '';
     if (isHome && window.scrollY > 0) {
       e.preventDefault();
-      lenis.scrollTo(0, { duration: 1.2 });
+      smoothScrollTo(0, { duration: 1.2 });
     }
   });
 
@@ -566,7 +727,7 @@
       scrollTopBtn.classList.toggle('pointer-events-none', window.scrollY <= 300);
     });
     scrollTopBtn.addEventListener('click', () => {
-      lenis.scrollTo(0, { duration: 1.2 });
+      smoothScrollTo(0, { duration: 1.2 });
     });
   }
 
@@ -580,7 +741,7 @@
     .from('.hero-btns',  { opacity: 0, y: 20,  duration: .7 }, '-=.4');
 
   // Hero parallax
-  if (document.querySelector('.hero-slider')) {
+  if (!isMobile && document.querySelector('.hero-slider')) {
     gsap.to('.hero-slider', {
       yPercent: 20,
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
@@ -606,16 +767,19 @@
   }
 
   // Reveal
-  gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 60 },
-      { opacity: 1, y: 0, duration: 1.1, ease: 'power4.out',
-        scrollTrigger: { trigger: el, start: 'top 85%' } }
-    );
-  });
+  if (!isMobile) {
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 60 },
+        { opacity: 1, y: 0, duration: 1.1, ease: 'power4.out',
+          scrollTrigger: { trigger: el, start: 'top 85%' } }
+      );
+    });
+  }
 
   // Story panels
-  gsap.utils.toArray('.story-panel').forEach((panel, i) => {
+  if (!isMobile) {
+    gsap.utils.toArray('.story-panel').forEach((panel, i) => {
     gsap.to(panel, { opacity: 1, scale: 1, duration: .5,
       scrollTrigger: { trigger: '.section-pin', start: `${i*25}% top`, end: `${(i+1)*25}% top`, scrub: true }
     });
@@ -623,12 +787,15 @@
       scrollTrigger: { trigger: '.section-pin', start: `${(i+.7)*25}% top`, end: `${(i+1)*25}% top`, scrub: true }
     });
   });
+  }
 
   // Cursor glow
   const glow = document.querySelector('.cursor-glow');
-  window.addEventListener('mousemove', e => {
-    gsap.to(glow, { x: e.clientX, y: e.clientY, duration: .4, ease: 'power2.out' });
-  });
+  if (glow && !isMobile) {
+    window.addEventListener('mousemove', e => {
+      gsap.to(glow, { x: e.clientX, y: e.clientY, duration: .4, ease: 'power2.out' });
+    });
+  }
 
   // Magnetic
   document.querySelectorAll('.magnetic').forEach(el => {
