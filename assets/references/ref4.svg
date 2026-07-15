@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 64" width="160" height="64">
-  <rect x="0" y="0" width="160" height="64" rx="12" fill="#ffffff" stroke="#B08A4A" stroke-width="1" stroke-opacity="0.2"/>
-  <circle cx="32" cy="32" r="14" fill="#B08A4A"/>
-  <text x="56" y="37" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#4a3b32">Referans 4</text>
-</svg>
